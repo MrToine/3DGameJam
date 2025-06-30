@@ -12,11 +12,18 @@ namespace Core.Runtime
         #region Publics
 
         public static GameManager Instance { get; private set; }
+        public static event Action OnGameOver;
         
         public bool IsOnPause
         {
             get => isOnPause;
             set => isOnPause = value;
+        }
+        
+        public bool IsOnGameOver
+        {
+            get => isOnGameOver;
+            set => isOnGameOver = value;
         }
 
         #endregion
@@ -37,6 +44,14 @@ namespace Core.Runtime
             // Sinon, cette instance devient l’instance unique
             Instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void Update()
+        {
+            if (isOnGameOver)
+            {
+                IsGameOver();
+            }
         }
         
         #endregion
@@ -61,6 +76,10 @@ namespace Core.Runtime
         #region Utils
 
         /* Fonctions privées utiles */
+        private void IsGameOver()
+        {
+            OnGameOver?.Invoke();
+        }
 
         #endregion
 
@@ -68,6 +87,8 @@ namespace Core.Runtime
         #region Privates and Protected
 
         private bool isOnPause = false;
+        private bool isOnGameOver = false;
+        
         SceneLoader _sceneLoader;
 
         #endregion

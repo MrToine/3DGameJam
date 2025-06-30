@@ -1,3 +1,4 @@
+using Character.Runtime;
 using Character.SO;
 using Core.Runtime;
 using UnityEngine;
@@ -34,6 +35,18 @@ namespace ProjectileSystem.Runtime
                 Rigidbody.linearVelocity = Vector3.zero;
                 Rigidbody.angularVelocity = Vector3.zero;
                 _timer = _lifetime;
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                if (collision.collider.TryGetComponent<IDamageable>(out var damageable))
+                {
+                    damageable.TakeDamage(_stat.attackPower);
+                    gameObject.SetActive(false);
+                }
             }
         }
 
