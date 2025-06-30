@@ -1,0 +1,21 @@
+{
+    "name": "Character.Runtime",
+    "rootNamespace": "Character.Runtime",
+    "references": [
+        "GUID:2ca720bbf8aa349608caa5ce4acaa603",
+        "GUID:9aa76e34aa47a42b1b00b040e500394d",
+        "GUID:0ac54675616ed49359bc2a3d797d3b70",
+        "GUID:1a6833360ddb547e0bed00799ce277ba",
+        "GUID:59f3dc851ec254ec18ad59fe26aea400",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
