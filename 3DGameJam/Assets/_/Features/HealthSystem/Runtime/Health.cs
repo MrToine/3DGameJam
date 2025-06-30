@@ -1,13 +1,12 @@
 using System;
 using Core.Runtime;
 using Game.Interfaces;
-using Player.Runtime;
-using Player.SO;
+using Character.Runtime;
 using UnityEngine;
 
 namespace HealthSystem.Runtime
 {
-    [RequireComponent(typeof(PlayerStat))]
+    [RequireComponent(typeof(CharacterStat))]
     public class Health : BaseMonobehaviour
     {
             #region Publics
@@ -27,12 +26,12 @@ namespace HealthSystem.Runtime
             // Start is called once before the first execution of Update after the MonoBehaviour is created
             void Awake()
             {
-                _playerStat = GetComponent<PlayerStat>();
-                _statProvider = _playerStat as IStatProvider;
+                _characterStat = GetComponent<CharacterStat>();
+                _statProvider = _characterStat as IStatProvider;
 
                 if (_statProvider == null)
                 {
-                    Error($"HealthSystem: {_playerStat.name} do note has IStatProvider !");
+                    Error($"HealthSystem: {_characterStat.name} do note has IStatProvider !");
                 }
             }
         
@@ -45,7 +44,7 @@ namespace HealthSystem.Runtime
 
             public void TakeDamage(float amount)
             {
-                if (_statProvider is PlayerStat playerStat)
+                if (_statProvider is CharacterStat playerStat)
                 {
                     playerStat.TakeDamage(amount);
                     OnHealthChange?.Invoke();
@@ -59,7 +58,7 @@ namespace HealthSystem.Runtime
 
             public void Heal(float amount)
             {
-                if (_statProvider is PlayerStat playerStat)
+                if (_statProvider is CharacterStat playerStat)
                 {
                     playerStat.Heal(amount);
                     if (playerStat.CurrentHealth < playerStat.MaxHealth)
@@ -81,7 +80,7 @@ namespace HealthSystem.Runtime
     
             #region Privates and Protected
         
-            private PlayerStat _playerStat;
+            private CharacterStat _characterStat;
             
             private IStatProvider _statProvider;
 

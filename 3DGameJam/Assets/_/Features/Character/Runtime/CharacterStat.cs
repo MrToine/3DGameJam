@@ -1,11 +1,11 @@
 using Core.Runtime;
 using Game.Interfaces;
-using Player.SO;
+using Character.SO;
 using UnityEngine;
 
-namespace Player.Runtime
+namespace Character.Runtime
 {
-    public class PlayerStat : BaseMonobehaviour, IStatProvider
+    public class CharacterStat : BaseMonobehaviour, IStatProvider
     {
 
         #region Publics
@@ -25,7 +25,7 @@ namespace Player.Runtime
         {
             if (_stats == null)
             {
-                Error("PlayerStat : Stats are null");
+                Error("CharacterStat : Stats are null");
                 return;
             }
             _currentHealth = _stats.maxHealth; 

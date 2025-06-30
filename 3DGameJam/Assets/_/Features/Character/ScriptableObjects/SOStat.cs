@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.SO
+namespace Character.SO
 {
     [CreateAssetMenu(fileName = "Stats", menuName = "Datas/Stats")]
     public class SOStat : ScriptableObject
