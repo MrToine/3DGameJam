@@ -1,0 +1,20 @@
+{
+    "name": "HealthSystem.Runtime",
+    "rootNamespace": "HealthSystem.Runtime",
+    "references": [
+        "GUID:2ca720bbf8aa349608caa5ce4acaa603",
+        "GUID:9aa76e34aa47a42b1b00b040e500394d",
+        "GUID:0ac54675616ed49359bc2a3d797d3b70",
+        "GUID:95677b188693e4856b357b17c641ef41",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
