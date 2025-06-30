@@ -28,8 +28,11 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
+				Debug.Log("Value: " + value.Get<Vector2>() + "True value: " + value);
+			
 			if(cursorInputForLook)
 			{
+				Debug.Log("Value: " + value.Get<Vector2>() + "True value: " + value);
 				LookInput(value.Get<Vector2>());
 			}
 		}

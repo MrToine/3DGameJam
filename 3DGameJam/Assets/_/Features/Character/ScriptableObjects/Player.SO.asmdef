@@ -1,6 +1,6 @@
 {
-    "name": "Player.SO",
-    "rootNamespace": "Player.SO",
+    "name": "Character.SO",
+    "rootNamespace": "Character.SO",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
