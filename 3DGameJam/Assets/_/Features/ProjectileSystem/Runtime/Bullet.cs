@@ -2,6 +2,7 @@ using Character.SO;
 using Core.Runtime;
 using UnityEngine;
 using PoolSystem.Runtime;
+using Unity.Cinemachine;
 
 namespace ProjectileSystem.Runtime
 {
@@ -19,8 +20,9 @@ namespace ProjectileSystem.Runtime
 
         private void OnEnable()
         {
-            _rigidbody = GetComponent<Rigidbody>();
-            _rigidbody.AddForce(transform.forward * _forwardPower + Vector3.up * _upPower, ForceMode.Impulse);
+            _camera = Camera.main;
+            Vector3 direction = (_camera.transform.position - transform.position).normalized;
+            Rigidbody.AddForce(direction * _forwardPower + Vector3.up * _upPower, ForceMode.Impulse);
         }
 
         private void Update()
@@ -29,8 +31,8 @@ namespace ProjectileSystem.Runtime
             if (_timer <= 0)
             {  
                 gameObject.SetActive(false);
-                _rigidbody.linearVelocity = Vector3.zero;
-                _rigidbody.angularVelocity = Vector3.zero;
+                Rigidbody.linearVelocity = Vector3.zero;
+                Rigidbody.angularVelocity = Vector3.zero;
                 _timer = _lifetime;
             }
         }
@@ -61,13 +63,12 @@ namespace ProjectileSystem.Runtime
         [Header("Trajectory")]
         [SerializeField] private float _forwardPower;
         [SerializeField] private float _upPower;
-        //[SerializeField] private float _speed;
+        [SerializeField] private float _speed;
 
+        private Camera _camera;
         private float _timer;
-        private Rigidbody _rigidbody;
 
         #endregion
-
 
     }
 }

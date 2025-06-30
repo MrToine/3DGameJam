@@ -152,5 +152,6 @@ MonoBehaviour:
   m_isVerbose: 0
   _stat: {fileID: 11400000, guid: c65fcdfa66b3c4e689e1232bbc6ad128, type: 2}
   _lifetime: 5
-  _forwardPower: 10
-  _upPower: 10
+  _forwardPower: 15
+  _upPower: 5
+  _speed: 20

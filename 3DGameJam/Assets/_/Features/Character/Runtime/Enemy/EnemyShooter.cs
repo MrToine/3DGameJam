@@ -27,7 +27,6 @@ namespace Character.Runtime
             if (!_isShooting)
             {
                 StartCoroutine(Waiting());
-                Info($"Tir numéro {_test++}");
             }
         }
 
