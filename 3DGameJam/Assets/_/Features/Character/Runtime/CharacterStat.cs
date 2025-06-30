@@ -25,7 +25,7 @@ namespace Character.Runtime
         {
             if (_stats == null)
             {
-                Error("PlayerStat : Stats are null");
+                Error("CharacterStat : Stats are null");
                 return;
             }
             _currentHealth = _stats.maxHealth; 
