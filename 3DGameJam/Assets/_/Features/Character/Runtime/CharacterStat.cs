@@ -15,6 +15,7 @@ namespace Character.Runtime
         public float CurrentStamina => _currentStamina;
         public int CurrentXp => _currentXP;
         public int CurrentLevel => _currentLevel;
+        public int AttackPower => _attackPower;
 
         #endregion
 
@@ -32,6 +33,7 @@ namespace Character.Runtime
             _currentStamina = _stats.maxStamina; 
             _currentXP = _stats.baseXp; 
             _currentLevel = _stats.level;
+            _attackPower = _stats.attackPower;
         }
 
         #endregion
@@ -105,6 +107,7 @@ namespace Character.Runtime
         private float _currentStamina;
         private int _currentXP;
         private int _currentLevel;
+        private int _attackPower;
 
         #endregion
         

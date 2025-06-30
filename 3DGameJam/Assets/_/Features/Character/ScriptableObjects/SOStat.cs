@@ -17,7 +17,7 @@ namespace Character.SO
         public int level;
 
         [Header("Paramètre de dommages")]
-        public float attackPower;
+        public int attackPower;
         public float defense;
     }
 }
