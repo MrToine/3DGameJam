@@ -13,6 +13,7 @@ namespace Core.Runtime
 
         public static GameManager Instance { get; private set; }
         public static event Action OnGameOver;
+        public UnityEvent OnBattleAreaEnd;
         
         public bool IsOnPause
         {
@@ -24,6 +25,12 @@ namespace Core.Runtime
         {
             get => isOnGameOver;
             set => isOnGameOver = value;
+        }
+        
+        public bool BattleAreaEnd
+        {
+            get => isBattleAreaEnd;
+            set => isBattleAreaEnd = value;
         }
 
         #endregion
@@ -51,6 +58,11 @@ namespace Core.Runtime
             if (isOnGameOver)
             {
                 IsGameOver();
+            }
+
+            if (BattleAreaEnd)
+            {
+                OnBattleAreaEnd?.Invoke();
             }
         }
         
@@ -94,6 +106,7 @@ namespace Core.Runtime
 
         private bool isOnPause = false;
         private bool isOnGameOver = false;
+        private bool isBattleAreaEnd = false;
         
         SceneLoader _sceneLoader;
 
