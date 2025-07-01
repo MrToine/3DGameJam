@@ -18,13 +18,16 @@ namespace CombatArea.Runtime
         public List<Transform> m_enemiesSpawns = new List<Transform>();
         public UnityEvent m_waveCleared;
         public int m_dollySpeed;
+
+        private int _currentWaveIndex;
+        private bool _waveCleared;
         
         [SerializeField] private CinemachineCamera _camera;
         [SerializeField] private CinemachineCamera _currentCamera;
         [SerializeField] private GameObject _gunPrefab;
         [SerializeField] private CinemachineSplineCart _splineContainer;
 
-        private List<GameObject> _currentWaveEnemies;
+        private List<GameObject> _currentWaveEnemies = new List<GameObject>();
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -41,23 +44,34 @@ namespace CombatArea.Runtime
             }
         }
 
+        private void Update()
+        {
+            if (_waveCleared == true)
+            {
+                CheckEnemies();
+            }
+        }
+
         private void SpawnEnemies()
         {
-            //if (_currentWaveEnemies.Count <= 0) return;
-           for(int g = 0; g < m_enemiesWaves.Count; g++){
-             var wave = m_enemiesWaves[g];
-             StartCoroutine(SpawnWaveCoroutine(wave));
-
-           }
+            if (_currentWaveIndex == 20) return;
+            
+            for(int g = _currentWaveIndex; g < m_enemiesWaves.Count; g++)
+            {
+                _currentWaveIndex = g;
+                Wave wave = m_enemiesWaves[g];
+                StartCoroutine(SpawnWaveCoroutine(wave));
+                Debug.Log("_currentWaveIndex: " + _currentWaveIndex + "g : " + g );
+            }
         }
 
         private IEnumerator SpawnWaveCoroutine(Wave wave)
-        {
+        { 
+            _currentWaveEnemies.Clear();
             foreach (var type in wave.m_enemyTypes)
             {
                 for (int i = 0; i < type.m_count; i++)
                 {
-                    
                     var rng = Random.Range(0, m_enemiesSpawns.Count);
                     var go = Instantiate(type.m_prefab, m_enemiesSpawns[rng].transform.position, Quaternion.identity);
                     _currentWaveEnemies.Add(go);
@@ -65,11 +79,11 @@ namespace CombatArea.Runtime
                 }
             }
         }
+        
         [ContextMenu("Check Enemies")]
         private void CheckEnemies()
         {
-            List<GameObject> enemies = new List<GameObject>();
-            if (enemies.Count == 0)
+            if (_currentWaveIndex >= m_enemiesWaves.Count-1)
             {
                 if (_splineContainer.AutomaticDolly.Method is SplineAutoDolly.FixedSpeed autodolly)
                 {
@@ -81,6 +95,12 @@ namespace CombatArea.Runtime
 
                 }
                 m_waveCleared.Invoke();
+                _waveCleared = true;
+            }
+            else
+            {
+                SpawnEnemies();
+                
             }
         }
     }

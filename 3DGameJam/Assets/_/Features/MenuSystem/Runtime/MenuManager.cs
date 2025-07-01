@@ -72,15 +72,23 @@ namespace MenuSystem.Runtime
             panelToShow.SetActive(true);
         }
 
+        private void HandleGameOver()
+        {
+            _gameOverPanel.SetActive(true);
+        }
+
         #endregion
 
 
         #region Privates and Protected
 
         private readonly List<IMenuModule> _registeredMenus = new();
+        private void OnEnable() => GameManager.OnGameOver += HandleGameOver;
+        private void OnDisable() => GameManager.OnGameOver -= HandleGameOver;
         
         [SerializeField] private Transform _menuContainer;
         [SerializeField] private GameObject _buttonPrefab;
+        [SerializeField] private GameObject _gameOverPanel;
 
         #endregion
     }

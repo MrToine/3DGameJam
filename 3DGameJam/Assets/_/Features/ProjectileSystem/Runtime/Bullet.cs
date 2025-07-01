@@ -1,3 +1,4 @@
+using Character.Runtime;
 using Character.SO;
 using Core.Runtime;
 using UnityEngine;
@@ -20,8 +21,15 @@ namespace ProjectileSystem.Runtime
 
         private void OnEnable()
         {
-            _camera = Camera.main;
-            Vector3 direction = (_camera.transform.position - transform.position).normalized;
+            //_camera = Camera.main;
+            //Vector3 direction = (_camera.transform.position - transform.position).normalized;
+            if (_player == null)
+            {
+                _player = GameObject.FindWithTag("Player").transform;
+            }
+            var direction = _player.position - transform.position;
+            direction.Normalize();
+            transform.rotation = Quaternion.LookRotation(direction);
             Rigidbody.AddForce(direction * _forwardPower + Vector3.up * _upPower, ForceMode.Impulse);
         }
 
@@ -34,6 +42,18 @@ namespace ProjectileSystem.Runtime
                 Rigidbody.linearVelocity = Vector3.zero;
                 Rigidbody.angularVelocity = Vector3.zero;
                 _timer = _lifetime;
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                if (collision.collider.TryGetComponent<IDamageable>(out var damageable))
+                {
+                    damageable.TakeDamage(_stat.attackPower);
+                    gameObject.SetActive(false);
+                }
             }
         }
 
@@ -69,7 +89,8 @@ namespace ProjectileSystem.Runtime
         private float _timer;
 
         #endregion
-
+    
+        private Transform _player;
     }
 }
 
