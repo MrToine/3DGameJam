@@ -7,14 +7,6 @@ namespace Character.Runtime.Player
 {
     public class ClickShooter : BaseMonobehaviour
     {
-
-        #region Publics
-
-        //
-
-        #endregion
-
-
         #region Unity API
 
         private void Awake()

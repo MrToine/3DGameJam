@@ -37,6 +37,16 @@ namespace Core.Runtime
             SceneManager.LoadScene(sceneName);
         }
 
+        public void FakeLoading(string nextSceneName)
+        {
+            Info("On vérifie que la scene Loading est disponible");
+            if (SceneManager.GetSceneByName("Loading").IsValid())
+            {
+                Info("On charge la scene Loading");
+                LoadScene("Loading");
+            }
+        }
+
         #endregion
 
 
