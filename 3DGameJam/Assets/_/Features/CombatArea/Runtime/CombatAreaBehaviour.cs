@@ -13,10 +13,6 @@ namespace CombatArea.Runtime
 {
     public class CombatAreaBehaviour : MonoBehaviour
     {
-
-        public List<Wave> m_enemiesWaves = new List<Wave>();
-        public List<Transform> m_enemiesSpawns = new List<Transform>();
-        public UnityEvent m_waveCleared;
         public int m_dollySpeed;
 
         private int _currentWaveIndex;
@@ -45,7 +41,6 @@ namespace CombatArea.Runtime
                     _camera.Priority = 2;
                     _hasBeenSpawned = true;
                     _gunPrefab.SetActive(true);
-                    SpawnEnemies();
 
                 }
             }
@@ -65,57 +60,11 @@ namespace CombatArea.Runtime
                 //CheckEnemies();
             }
         }
-
-        private void SpawnEnemies()
-        {
-            if (_currentWaveIndex == 20) return;
-            
-            for(int g = _currentWaveIndex; g < m_enemiesWaves.Count; g++)
-            {
-                _currentWaveIndex = g;
-                Wave wave = m_enemiesWaves[g];
-                StartCoroutine(SpawnWaveCoroutine(wave));
-                Debug.Log("_currentWaveIndex: " + _currentWaveIndex + "g : " + g );
-            }
-        }
-
-        private IEnumerator SpawnWaveCoroutine(Wave wave)
-        { 
-            _currentWaveEnemies.Clear();
-            foreach (var type in wave.m_enemyTypes)
-            {
-                for (int i = 0; i < type.m_count; i++)
-                {
-                    var rng = Random.Range(0, m_enemiesSpawns.Count);
-                    var go = Instantiate(type.m_prefab, m_enemiesSpawns[rng].transform.position, Quaternion.identity);
-                    _currentWaveEnemies.Add(go);
-                    yield return new WaitForSeconds(0.5f); // délai entre chaque spawn
-                }
-            }
-        }
         
         [ContextMenu("Check Enemies")]
         private void CheckEnemies()
         {
-            if (_currentWaveIndex >= m_enemiesWaves.Count-1)
-            {
-                if (_splineContainer.AutomaticDolly.Method is SplineAutoDolly.FixedSpeed autodolly)
-                {
-                    
-                    autodolly.Speed = m_dollySpeed;
-                    _gunPrefab.SetActive(false);
-                    _currentCamera.Priority = 2;
-                    _camera.Priority = 1;
-
-                }
-                m_waveCleared.Invoke();
-                _waveCleared = true;
-            }
-            else
-            {
-                SpawnEnemies();
-                
-            }
+            //
         }
     }
 }

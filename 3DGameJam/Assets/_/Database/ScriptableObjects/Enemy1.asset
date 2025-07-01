@@ -17,5 +17,5 @@ MonoBehaviour:
   staminaRegenRate: 0
   baseXp: 0
   level: 0
-  attackPower: 5
+  attackPower: 60
   defense: 0

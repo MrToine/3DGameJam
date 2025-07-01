@@ -70,6 +70,12 @@ namespace Core.Runtime
             _sceneLoader.LoadScene(sceneName);
         }
         
+        public void LoadScene(string sceneName)
+        {
+            Info("On charge un scene grâce au FakeLoading");
+            _sceneLoader.FakeLoading(sceneName);
+        }
+        
         #endregion
 
 

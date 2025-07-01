@@ -1,7 +1,10 @@
 {
     "name": "WaveSystem.Runtime",
     "rootNamespace": "WaveSystem.Runtime",
-    "references": [],
+    "references": [
+        "GUID:2ca720bbf8aa349608caa5ce4acaa603",
+        "GUID:1a6833360ddb547e0bed00799ce277ba"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
