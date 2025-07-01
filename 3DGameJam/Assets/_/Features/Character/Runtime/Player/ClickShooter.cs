@@ -4,6 +4,7 @@ using Character.SO;
 using Core.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 namespace Character.Runtime.Player
 {
@@ -44,6 +45,20 @@ namespace Character.Runtime.Player
             }
         }
 
+        public void Weapon1(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _currentWeapon = WeaponType.Gun;
+            }
+        }
+        public void Weapon2(InputAction.CallbackContext context)
+        {
+            if (context.performed && m_shotgunUnlocked)
+            {
+                _currentWeapon = WeaponType.Shotgun;
+            }
+        }
         private void CheckWeapon()
         {
            switch(_currentWeapon){
@@ -56,6 +71,7 @@ namespace Character.Runtime.Player
                
                    _radius = _shotGunStats.m_radius;
                    _damage = _shotGunStats.m_damage;
+                   _shotGunFallOffDistance = _shotGunStats.m_shotGunFallOffDistance;
                    break;  
                
            }
@@ -74,11 +90,14 @@ namespace Character.Runtime.Player
             {
                 RaycastHit[] hits = Physics.SphereCastAll(ray, _radius, 200,_enemyLayer);
                 // Shotgun : SphereCast
+                
                 foreach (RaycastHit hit in hits)
                 {
-                    if (hit.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
+                    Debug.Log("Distance: " + hit.distance);
+                    
+                    if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
                     {
-                        damageable.TakeDamage(_damage);
+                        damageable.TakeDamage(hit.distance > _shotGunFallOffDistance ? _damage/2 : _damage);
                     }
                 }
             }
@@ -109,13 +128,15 @@ namespace Character.Runtime.Player
         private Camera _camera;
         private CharacterStat _characterStat;
 
+        public bool m_shotgunUnlocked;
         public WeaponType _currentWeapon;
         private float _radius;
         private int _damage;
+        private float _shotGunFallOffDistance;
 
         #endregion
 
-
+        
     }
 }
 

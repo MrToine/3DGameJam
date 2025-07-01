@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   m_damage: 100
-  m_radius: 50
+  m_radius: 0.5
+  m_shotGunFallOffDistance: 2

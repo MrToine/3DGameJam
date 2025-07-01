@@ -173,6 +173,24 @@ namespace GJInputActions
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Weapon1"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ed619f2-6fe1-4c02-bc6b-01b0fae3bebc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Weapon2"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6206f3d-0f5d-4ae8-8314-7a64a14c4620"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -547,6 +565,28 @@ namespace GJInputActions
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28def23c-bd3e-4d07-8c17-283c3e72da40"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4739ac4-7df2-4a21-8052-41f3747394f2"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1143,6 +1183,8 @@ namespace GJInputActions
             m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
             m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
             m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+            m_Player_Weapon1 = m_Player.FindAction("Weapon1", throwIfNotFound: true);
+            m_Player_Weapon2 = m_Player.FindAction("Weapon2", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1245,6 +1287,8 @@ namespace GJInputActions
         private readonly InputAction m_Player_Previous;
         private readonly InputAction m_Player_Next;
         private readonly InputAction m_Player_Sprint;
+        private readonly InputAction m_Player_Weapon1;
+        private readonly InputAction m_Player_Weapon2;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -1292,6 +1336,14 @@ namespace GJInputActions
             /// Provides access to the underlying input action "Player/Sprint".
             /// </summary>
             public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/Weapon1".
+            /// </summary>
+            public InputAction @Weapon1 => m_Wrapper.m_Player_Weapon1;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/Weapon2".
+            /// </summary>
+            public InputAction @Weapon2 => m_Wrapper.m_Player_Weapon2;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -1345,6 +1397,12 @@ namespace GJInputActions
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @Weapon1.started += instance.OnWeapon1;
+                @Weapon1.performed += instance.OnWeapon1;
+                @Weapon1.canceled += instance.OnWeapon1;
+                @Weapon2.started += instance.OnWeapon2;
+                @Weapon2.performed += instance.OnWeapon2;
+                @Weapon2.canceled += instance.OnWeapon2;
             }
 
             /// <summary>
@@ -1383,6 +1441,12 @@ namespace GJInputActions
                 @Sprint.started -= instance.OnSprint;
                 @Sprint.performed -= instance.OnSprint;
                 @Sprint.canceled -= instance.OnSprint;
+                @Weapon1.started -= instance.OnWeapon1;
+                @Weapon1.performed -= instance.OnWeapon1;
+                @Weapon1.canceled -= instance.OnWeapon1;
+                @Weapon2.started -= instance.OnWeapon2;
+                @Weapon2.performed -= instance.OnWeapon2;
+                @Weapon2.canceled -= instance.OnWeapon2;
             }
 
             /// <summary>
@@ -1746,6 +1810,20 @@ namespace GJInputActions
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnSprint(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Weapon1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnWeapon1(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Weapon2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnWeapon2(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
