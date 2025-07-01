@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Runtime;
 using PoolSystem.Runtime;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 namespace WaveSystem.Runtime
 {
@@ -25,9 +27,13 @@ namespace WaveSystem.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (!_hasTriggered)
             {
-                StartCoroutine(HandleWave());
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
+                    _hasTriggered = true;
+                    StartCoroutine(HandleWave());
+                }
             }
         }
 
@@ -48,12 +54,6 @@ namespace WaveSystem.Runtime
 
 
         #region Utils
-
-        [ContextMenu("Démarrer la vague")]
-        public void StartWave()
-        {
-            StartCoroutine(HandleWave());
-        }
 
         private IEnumerator HandleWave()
         {
@@ -98,7 +98,10 @@ namespace WaveSystem.Runtime
                     yield return new WaitForSeconds(enemySpawnData.spawnDelay);
                 }
             }
+            
             yield return new WaitUntil(AllEnemiesCleared);
+            yield return new WaitForSeconds(1f);
+            
         }
 
         private bool AllEnemiesCleared()
@@ -111,6 +114,7 @@ namespace WaveSystem.Runtime
                 }
             }
             _countWaves++;
+            Info("Wave cleared");
             return true;
         }
 
@@ -128,6 +132,7 @@ namespace WaveSystem.Runtime
         private PoolSystem.Runtime.PoolSystem _poolSystem;
         private readonly List<GameObject> _activeEnemies = new List<GameObject>();
         private int _countWaves = 0;
+        private bool _hasTriggered = false;
 
         #endregion
     }
