@@ -25,7 +25,10 @@ namespace WaveSystem.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            StartCoroutine(HandleWave());
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                StartCoroutine(HandleWave());
+            }
         }
 
         #endregion
@@ -33,7 +36,13 @@ namespace WaveSystem.Runtime
 
         #region Main Methods
 
-        // 
+        private void Update()
+        {
+            if (_countWaves >= _waves.Length)
+            {
+                GameManager.Instance.BattleAreaEnd = true;
+            }
+        }
 
         #endregion
 
@@ -101,6 +110,7 @@ namespace WaveSystem.Runtime
                     return false;
                 }
             }
+            _countWaves++;
             return true;
         }
 
@@ -117,6 +127,7 @@ namespace WaveSystem.Runtime
         
         private PoolSystem.Runtime.PoolSystem _poolSystem;
         private readonly List<GameObject> _activeEnemies = new List<GameObject>();
+        private int _countWaves = 0;
 
         #endregion
     }
