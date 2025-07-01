@@ -1,6 +1,7 @@
 using Character.Runtime;
 using Core.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class test : MonoBehaviour
 {
@@ -30,6 +31,6 @@ public class test : MonoBehaviour
     [ContextMenu("Charger le loading scene")]
     public void Debug_LoadScene()
     {
-        GameManager.Instance.LoadScene("Loading");
+        GameManager.Instance.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
