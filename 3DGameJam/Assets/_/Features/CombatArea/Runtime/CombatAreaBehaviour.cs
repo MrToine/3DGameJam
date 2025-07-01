@@ -17,6 +17,7 @@ namespace CombatArea.Runtime
 
         private int _currentWaveIndex;
         private bool _waveCleared;
+        private bool _hasBeenSpawned;
         
         [SerializeField] private CinemachineCamera _camera;
         [SerializeField] private CinemachineCamera _currentCamera;
@@ -26,24 +27,37 @@ namespace CombatArea.Runtime
         private List<GameObject> _currentWaveEnemies = new List<GameObject>();
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            Debug.Log("In ?");
+            if (other.CompareTag("Player") && !_hasBeenSpawned)
             {
+                Debug.Log("In  PLayer ??");
+
                 if (_splineContainer.AutomaticDolly.Method is SplineAutoDolly.FixedSpeed autodolly)
                 {
+                    Debug.Log("In Dolly  ?");
+
                     autodolly.Speed = 0;
                     _currentCamera.Priority = 1;
                     _camera.Priority = 2;
+                    _hasBeenSpawned = true;
                     _gunPrefab.SetActive(true);
 
                 }
             }
         }
 
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player")  && _hasBeenSpawned)
+            {
+                _hasBeenSpawned = false;
+            }
+        }
         private void Update()
         {
-            if (_waveCleared == true)
+            if (_waveCleared == false)
             {
-                CheckEnemies();
+                //CheckEnemies();
             }
         }
         
