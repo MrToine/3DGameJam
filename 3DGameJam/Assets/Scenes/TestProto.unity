@@ -2874,9 +2874,9 @@ MonoBehaviour:
         z: 4.7592583
       Rotation:
         value:
-          x: 0.0045536724
+          x: 0.004553672
           y: -0.5591909
-          z: -0.006750805
+          z: -0.0067508053
           w: 0.8289989
     - Position:
         x: -30.9
@@ -3667,6 +3667,10 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1093714467228714728, guid: 51880bbabe8f0412cb6a05a3ed9d77b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3586222164167787272, guid: 51880bbabe8f0412cb6a05a3ed9d77b4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3674,6 +3678,10 @@ PrefabInstance:
     - target: {fileID: 3586222164167787272, guid: 51880bbabe8f0412cb6a05a3ed9d77b4, type: 3}
       propertyPath: m_TagString
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250819819767040511, guid: 51880bbabe8f0412cb6a05a3ed9d77b4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
