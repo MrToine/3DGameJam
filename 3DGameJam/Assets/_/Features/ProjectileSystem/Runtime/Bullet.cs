@@ -21,8 +21,15 @@ namespace ProjectileSystem.Runtime
 
         private void OnEnable()
         {
-            _camera = Camera.main;
-            Vector3 direction = (_camera.transform.position - transform.position).normalized;
+            //_camera = Camera.main;
+            //Vector3 direction = (_camera.transform.position - transform.position).normalized;
+            if (_player == null)
+            {
+                _player = GameObject.FindWithTag("Player").transform;
+            }
+            var direction = _player.position - transform.position;
+            direction.Normalize();
+            transform.rotation = Quaternion.LookRotation(direction);
             Rigidbody.AddForce(direction * _forwardPower + Vector3.up * _upPower, ForceMode.Impulse);
         }
 
@@ -82,7 +89,8 @@ namespace ProjectileSystem.Runtime
         private float _timer;
 
         #endregion
-
+    
+        private Transform _player;
     }
 }
 
