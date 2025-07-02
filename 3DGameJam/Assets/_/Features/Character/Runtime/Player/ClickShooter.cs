@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Character.SO;
 using Core.Runtime;
 using UnityEngine;
@@ -18,6 +17,7 @@ namespace Character.Runtime.Player
         #region Publics
         
         public UnityEvent<int> OnShotEvent;
+        public UnityEvent OnEmptyMagazieEvent;
 
         public enum WeaponType
         {
@@ -26,16 +26,16 @@ namespace Character.Runtime.Player
         }
 
         #endregion
-
+        
 
         #region Unity API
 
         private void Awake()
         {
             _currentWeapon = WeaponType.Gun;
+            CheckWeapon();
             _characterStat = GetComponent<CharacterStat>();
             _camera = Camera.main;
-            _shotCount = 15;
         }
 
         #endregion
@@ -48,8 +48,7 @@ namespace Character.Runtime.Player
             Info("On tente de recharger");
             if (context.performed)
             {
-                Info("La touche à été pressée, on recharge");
-                _shotCount = 15;
+                _shotCount = CurrentWeaponStat.m_magazine;
                 OnShotEvent?.Invoke(_shotCount);
             }
         }
@@ -58,7 +57,6 @@ namespace Character.Runtime.Player
         {
             if (context.performed && _shotCount >= 0)
             {
-                CheckWeapon();
                 Shot();
             }
         }
@@ -68,6 +66,8 @@ namespace Character.Runtime.Player
             if (context.performed)
             {
                 _currentWeapon = WeaponType.Gun;
+                CheckWeapon();
+                
             }
         }
         public void Weapon2(InputAction.CallbackContext context)
@@ -75,24 +75,16 @@ namespace Character.Runtime.Player
             if (context.performed && m_shotgunUnlocked)
             {
                 _currentWeapon = WeaponType.Shotgun;
+                CheckWeapon();
+                
             }
         }
         private void CheckWeapon()
         {
-           switch(_currentWeapon){
-
-               case  WeaponType.Gun:
-                   _radius = _gunStats.m_radius;
-                   _damage = _gunStats.m_damage;
-                   break;
-               case WeaponType.Shotgun:
-               
-                   _radius = _shotGunStats.m_radius;
-                   _damage = _shotGunStats.m_damage;
-                   _shotGunFallOffDistance = _shotGunStats.m_shotGunFallOffDistance;
-                   break;  
-               
-           }
+           _radius = CurrentWeaponStat.m_radius;
+           _damage = CurrentWeaponStat.m_damage;
+           _shotCount = CurrentWeaponStat.m_magazine;
+           _shotGunFallOffDistance = CurrentWeaponStat.m_shotGunFallOffDistance;
         }
         #endregion
 
@@ -106,6 +98,13 @@ namespace Character.Runtime.Player
             {
                 _shotCount--;
                 OnShotEvent?.Invoke(_shotCount);
+            }
+
+            if (_shotCount <= 0)
+            {
+                Debug.Log("You have to reload");
+                OnEmptyMagazieEvent?.Invoke();
+                return;
             }
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             Vector3 origin = _camera.transform.position;
@@ -186,6 +185,10 @@ namespace Character.Runtime.Player
         private float _shotGunFallOffDistance;
         private int _shotCount;
         private bool _canReload = false;
+
+        
+        private WeaponStat CurrentWeaponStat =>
+            _currentWeapon == WeaponType.Gun ? _gunStats : _shotGunStats;
 
         #endregion
 

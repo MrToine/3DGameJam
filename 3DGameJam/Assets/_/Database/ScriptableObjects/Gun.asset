@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_damage: 50
   m_radius: 0
+  m_magazine: 12
+  m_shotGunFallOffDistance: 0
