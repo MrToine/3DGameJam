@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6398bd8bad3744f839faa6b4f16acb1f
+guid: 5aa9c225245658b439b775686b257236
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

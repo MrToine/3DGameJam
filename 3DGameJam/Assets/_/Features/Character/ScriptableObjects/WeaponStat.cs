@@ -7,6 +7,7 @@ namespace Character.SO
     {
         public int m_damage;
         public float m_radius;
+        public int m_magazine;
         public float m_shotGunFallOffDistance;
     }
 }

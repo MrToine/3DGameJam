@@ -231,11 +231,35 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8965435342634737552}
+        m_TargetAssemblyTypeName: Character.Runtime.Player.ClickShooter, Character.Runtime
+        m_MethodName: Weapon1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3ed619f2-6fe1-4c02-bc6b-01b0fae3bebc
     m_ActionName: 'Player/Weapon1[/Keyboard/1]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8965435342634737552}
+        m_TargetAssemblyTypeName: Character.Runtime.Player.ClickShooter, Character.Runtime
+        m_MethodName: Weapon2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d6206f3d-0f5d-4ae8-8314-7a64a14c4620
     m_ActionName: 'Player/Weapon2[/Keyboard/2]'
   - m_PersistentCalls:
@@ -328,6 +352,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isVerbose: 1
   OnShotEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEmptyMagazieEvent:
     m_PersistentCalls:
       m_Calls: []
   _enemyLayers:
