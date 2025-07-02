@@ -12,6 +12,7 @@ namespace Character.Runtime.Player
         private void Awake()
         {
             _characterStat = GetComponent<CharacterStat>();
+            _screenFlash = GetComponentInChildren<ScreenDamageFlash>();
         }
 
         private void Update()
@@ -26,9 +27,12 @@ namespace Character.Runtime.Player
 
         public void TakeDamage(int amount)
         {
+            _screenFlash.Flash();
             _characterStat.TakeDamage(amount);
             Info($"Le joueur prend {amount} degats, il lui reste {_characterStat.CurrentHealth} PV");
         }
+        
+        private ScreenDamageFlash _screenFlash;
     }
 }
 
