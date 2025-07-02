@@ -1,8 +1,10 @@
+using Character.SO;
+using Core.Runtime;
 using UnityEngine;
 
 namespace ProjectileSystem.Runtime
 {
-    public class BulletSpawner : MonoBehaviour
+    public class BulletSpawner : BaseMonobehaviour
     {
 
         #region Publics
@@ -23,13 +25,23 @@ namespace ProjectileSystem.Runtime
 
 
         #region Main Methods
-
-        public void OnShot()
+        
+        public void Spawn(GameObject bulletPrefab, Vector3 transformPosition, Vector3 transformForward, StatDatas stat)
         {
             var bullet = _poolSystem.GetFirstAvailableProjectile();
-            bullet.transform.position = transform.position;
-            bullet.transform.rotation = transform.rotation;
+            bullet.transform.position = transformPosition;
+            bullet.transform.rotation = Quaternion.LookRotation(transformForward);
             bullet.SetActive(true);
+            
+            var bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript)
+            {
+                bulletScript.SetStats(stat);
+            }
+            else
+            {
+                Warning("Le projectile n'a pas de script Bullet");
+            }
         }
 
         #endregion
@@ -47,6 +59,8 @@ namespace ProjectileSystem.Runtime
         private PoolSystem.Runtime.PoolSystem _poolSystem;
 
         #endregion
+
+
     }
 }
 

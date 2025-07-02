@@ -10,6 +10,7 @@ namespace Character.Runtime
 
         #region Publics
         
+        public SOStat CharacterStats => _stats;
         public float MaxHealth => _stats.maxHealth;
         public float CurrentHealth => _currentHealth;
         public float CurrentStamina => _currentStamina;

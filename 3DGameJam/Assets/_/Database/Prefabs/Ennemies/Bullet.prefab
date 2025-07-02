@@ -149,8 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a725da9d8bad4bf98835a31f928078c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isVerbose: 0
-  _stat: {fileID: 11400000, guid: c65fcdfa66b3c4e689e1232bbc6ad128, type: 2}
+  m_isVerbose: 1
   _lifetime: 5
   _forwardPower: 15
   _upPower: 5

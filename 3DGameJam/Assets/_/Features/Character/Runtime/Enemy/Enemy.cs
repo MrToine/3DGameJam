@@ -1,16 +1,30 @@
 using System;
+using Character.SO;
 using Core.Runtime;
 using UnityEngine;
 
 namespace Character.Runtime
 {
-    public class Enemy : BaseMonobehaviour, IDamageable
+    public class Enemy : BaseMonobehaviour
     {
-        private CharacterStat _characterStat;
 
         private void Awake()
         {
             _characterStat = GetComponent<CharacterStat>();
+            var enemyData = _characterStat.CharacterStats as EnemyData;
+            var shooter = GetComponentInChildren<EnemyShooter>();
+            if (shooter == null)
+            {
+                Info("Shooter manquant sur l'ennemi.");
+            }
+            if (shooter != null && enemyData != null)
+            {
+                shooter.Init(enemyData.enemyType, enemyData.bulletPrefab, enemyData.Stats());
+            }
+            else
+            {
+                Debug.LogWarning("Shooter ou EnemyData manquant sur l'ennemi.");
+            }
         }
 
         private void OnEnable()
@@ -45,6 +59,6 @@ namespace Character.Runtime
         }
         
         private Transform _player;
+        private CharacterStat _characterStat;
     }
 }
-

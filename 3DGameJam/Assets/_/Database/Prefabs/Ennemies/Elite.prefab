@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1141608147208568955}
   - component: {fileID: 7712691940323483369}
   m_Layer: 29
-  m_Name: Enemy
+  m_Name: Elite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7f5f97e05442e7ae14be5540b7cc28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isVerbose: 0
-  _stats: {fileID: 11400000, guid: 60137414347e746a89b64832dbdc4134, type: 2}
+  m_isVerbose: 1
+  _stats: {fileID: 11400000, guid: 1310fafcf20694425bce10632d41886f, type: 2}
 --- !u!114 &7712691940323483369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ea27d8d2a2433990742077d83f4418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_isVerbose: 0
 --- !u!114 &3710484693134201666
 MonoBehaviour:
   m_ObjectHideFlags: 0

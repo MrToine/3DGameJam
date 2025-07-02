@@ -51,7 +51,7 @@ namespace ProjectileSystem.Runtime
             {
                 if (collision.collider.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    damageable.TakeDamage(_stat.attackPower);
+                    damageable.TakeDamage(_stat.AttackPower);
                     gameObject.SetActive(false);
                 }
             }
@@ -62,7 +62,10 @@ namespace ProjectileSystem.Runtime
 
         #region Main Methods
 
-        //
+        public void SetStats(StatDatas stat)
+        {
+            _stat = stat;
+        }
 
         #endregion
 
@@ -76,8 +79,6 @@ namespace ProjectileSystem.Runtime
 
         #region Privates and Protected
         
-        [Header( "Scriptable Object (enemy for attack stat)" )]
-        [SerializeField] private SOStat _stat;
         [Header( "Bullet Parameters" )]
         [SerializeField] private float _lifetime;
         [Header("Trajectory")]
@@ -87,10 +88,12 @@ namespace ProjectileSystem.Runtime
 
         private Camera _camera;
         private float _timer;
+        private StatDatas _stat;
 
         #endregion
     
         private Transform _player;
+
     }
 }
 

@@ -13,7 +13,11 @@ namespace WaveSystem.Runtime
 
         #region Publics
 
-        //
+        public bool HasTriggered
+        {
+            get { return _hasTriggered; }
+            set { _hasTriggered = value; }
+        }
 
         #endregion
 
@@ -36,12 +40,7 @@ namespace WaveSystem.Runtime
                 }
             }
         }
-
-        #endregion
-
-
-        #region Main Methods
-
+        
         private void Update()
         {
             if (_countWaves >= _waves.Length)
@@ -50,6 +49,17 @@ namespace WaveSystem.Runtime
             }
         }
 
+        #endregion
+
+
+        #region Main Methods
+
+        public void LaunchWaves()
+        {
+            _hasTriggered = true;
+            StartCoroutine(HandleWave());
+        }
+        
         #endregion
 
 

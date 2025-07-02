@@ -1,4 +1,5 @@
 using System.Collections;
+using Character.SO;
 using Core.Runtime;
 using ProjectileSystem.Runtime;
 using UnityEngine;
@@ -10,7 +11,12 @@ namespace Character.Runtime
 
         #region Publics
 
-        //
+        public void Init(EnemyType type, GameObject bulletPrefab, StatDatas stat)
+        {
+            _enemyType = type;
+            _bulletPrefab = bulletPrefab;
+            _stat = stat;
+        }
 
         #endregion
 
@@ -46,7 +52,14 @@ namespace Character.Runtime
         {
             _isShooting = true;
             yield return new WaitForSeconds(_waitTimeToShoot);
-            _bulletSpawner.OnShot();
+            if (_enemyType == EnemyType.Elite)
+            {
+                _bulletSpawner.Spawn(_bulletPrefab, transform.position, transform.forward, _stat);
+            }
+            else
+            {
+                Info("L'ennemie attaque avec un hit direct");
+            }
             _isShooting = false;
         }
 
@@ -61,6 +74,9 @@ namespace Character.Runtime
         private bool _isShooting = false;
         private BulletSpawner _bulletSpawner;
         private int _test = 0;
+        private EnemyType _enemyType;
+        private GameObject _bulletPrefab;
+        private StatDatas _stat;
 
         #endregion
     }
