@@ -191,6 +191,15 @@ namespace GJInputActions
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReloadMagazine"",
+                    ""type"": ""Button"",
+                    ""id"": ""88e2377e-d7c7-4044-84a9-81a14238beac"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -587,6 +596,17 @@ namespace GJInputActions
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Weapon2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ede946f8-b7ec-43e1-ba45-8c353acdf389"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReloadMagazine"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1185,6 +1205,7 @@ namespace GJInputActions
             m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
             m_Player_Weapon1 = m_Player.FindAction("Weapon1", throwIfNotFound: true);
             m_Player_Weapon2 = m_Player.FindAction("Weapon2", throwIfNotFound: true);
+            m_Player_ReloadMagazine = m_Player.FindAction("ReloadMagazine", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1289,6 +1310,7 @@ namespace GJInputActions
         private readonly InputAction m_Player_Sprint;
         private readonly InputAction m_Player_Weapon1;
         private readonly InputAction m_Player_Weapon2;
+        private readonly InputAction m_Player_ReloadMagazine;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -1344,6 +1366,10 @@ namespace GJInputActions
             /// Provides access to the underlying input action "Player/Weapon2".
             /// </summary>
             public InputAction @Weapon2 => m_Wrapper.m_Player_Weapon2;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/ReloadMagazine".
+            /// </summary>
+            public InputAction @ReloadMagazine => m_Wrapper.m_Player_ReloadMagazine;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -1403,6 +1429,9 @@ namespace GJInputActions
                 @Weapon2.started += instance.OnWeapon2;
                 @Weapon2.performed += instance.OnWeapon2;
                 @Weapon2.canceled += instance.OnWeapon2;
+                @ReloadMagazine.started += instance.OnReloadMagazine;
+                @ReloadMagazine.performed += instance.OnReloadMagazine;
+                @ReloadMagazine.canceled += instance.OnReloadMagazine;
             }
 
             /// <summary>
@@ -1447,6 +1476,9 @@ namespace GJInputActions
                 @Weapon2.started -= instance.OnWeapon2;
                 @Weapon2.performed -= instance.OnWeapon2;
                 @Weapon2.canceled -= instance.OnWeapon2;
+                @ReloadMagazine.started -= instance.OnReloadMagazine;
+                @ReloadMagazine.performed -= instance.OnReloadMagazine;
+                @ReloadMagazine.canceled -= instance.OnReloadMagazine;
             }
 
             /// <summary>
@@ -1824,6 +1856,13 @@ namespace GJInputActions
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnWeapon2(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "ReloadMagazine" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnReloadMagazine(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

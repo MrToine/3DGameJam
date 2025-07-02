@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Diagnostics;
 using Character.SO;
 using Core.Runtime;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 
@@ -12,6 +14,8 @@ namespace Character.Runtime.Player
     {
 
         #region Publics
+        
+        public UnityEvent<int> OnShotEvent;
 
         public enum WeaponType
         {
@@ -29,6 +33,7 @@ namespace Character.Runtime.Player
             _currentWeapon = WeaponType.Gun;
             _characterStat = GetComponent<CharacterStat>();
             _camera = Camera.main;
+            _shotCount = 15;
         }
 
         #endregion
@@ -36,9 +41,18 @@ namespace Character.Runtime.Player
 
         #region Main Methods
 
+        public void Reload(InputAction.CallbackContext context)
+        {
+            if (context.performed && _shotCount == 0)
+            {
+                _shotCount = 15;
+                OnShotEvent?.Invoke(_shotCount);
+            }
+        }
+
         public void OnShot(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && _shotCount >= 0)
             {
                 CheckWeapon();
                 Shot();
@@ -84,6 +98,8 @@ namespace Character.Runtime.Player
         /* Fonctions privées utiles */
         private void Shot()
         {
+            _shotCount--;
+            OnShotEvent?.Invoke(_shotCount);
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
             if (_radius > 0f)
@@ -133,10 +149,12 @@ namespace Character.Runtime.Player
         private float _radius;
         private int _damage;
         private float _shotGunFallOffDistance;
+        private int _shotCount;
+        private bool _canReload = false;
 
         #endregion
 
-        
+
     }
 }
 
