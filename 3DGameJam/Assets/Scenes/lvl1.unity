@@ -997,6 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 2106174432}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -1225,6 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 291640022}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -1554,6 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 422247279}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -1716,6 +1719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 100220205}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -1871,6 +1875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 1517926163}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -2189,6 +2194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 2075317014}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -2615,6 +2621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 1303623394}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -2760,8 +2767,20 @@ PrefabInstance:
       objectReference: {fileID: 1470895654}
     - target: {fileID: 2805229942618870678, guid: 730e7c32a2ae74ce289f1eb6f6136223, type: 3}
       propertyPath: _sfxLibrary.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2805229942618870678, guid: 730e7c32a2ae74ce289f1eb6f6136223, type: 3}
+      propertyPath: '_sfxLibrary.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b7d5d749d199e64ea67304d0ba4dc7c, type: 3}
+    - target: {fileID: 2805229942618870678, guid: 730e7c32a2ae74ce289f1eb6f6136223, type: 3}
+      propertyPath: '_sfxLibrary.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4301edca98d78cf4f8c0e86e159d5ff8, type: 3}
+    - target: {fileID: 2805229942618870678, guid: 730e7c32a2ae74ce289f1eb6f6136223, type: 3}
+      propertyPath: '_sfxLibrary.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 629c0209f91ae9940803d857aabaa326, type: 3}
     - target: {fileID: 3217901021714057053, guid: 730e7c32a2ae74ce289f1eb6f6136223, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -4057,9 +4076,9 @@ MonoBehaviour:
         z: 4.7592583
       Rotation:
         value:
-          x: 0.0045536724
+          x: 0.004553672
           y: -0.5591909
-          z: -0.006750805
+          z: -0.0067508053
           w: 0.8289989
     - Position:
         x: -30.9
@@ -4447,6 +4466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 1295090004}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -4856,6 +4876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 979503996}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}
@@ -5267,6 +5288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dollySpeed: 3
+  _stopPlayer: 1
   _camera: {fileID: 2022491993}
   _currentCamera: {fileID: 64622562}
   _gunPrefab: {fileID: 2093065771}

@@ -1,4 +1,5 @@
 using System;
+using AudioSystem.Runtime;
 using Character.SO;
 using Core.Runtime;
 using UnityEngine;
@@ -37,6 +38,7 @@ namespace Character.Runtime
             LookAtPlayer();
             if (_characterStat.CurrentHealth <= 0)
             {
+                AudioManager.Instance.PlaySFXByName("death-doll");
                 gameObject.SetActive(false);
             }
         }

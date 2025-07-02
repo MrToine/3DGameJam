@@ -92,7 +92,7 @@ namespace Character.Runtime.Player
         /* Fonctions privées utiles */
         private void Shot()
         {
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.SfxLibrary[1]);
+            AudioManager.Instance.PlaySFXByName("retro-gun");
             if (_shotCount >= 1)
             {
                 _shotCount--;

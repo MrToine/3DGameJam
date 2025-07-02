@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isVerbose: 0
-  _levelMusic: {fileID: 8300000, guid: 89023c3ab20ff412d842b202657cfce4, type: 3}
+  _levelMusic: {fileID: 8300000, guid: d8f34b4b75a7d3c4785e6186edadd491, type: 3}
   _musicSource: {fileID: 0}
   _ambianceSource: {fileID: 0}
   _sfxLibrary:
-  - {fileID: 8300000, guid: 2415b9d0f38894297bf31603d92e9ca5, type: 3}
+  - {fileID: 8300000, guid: 4b7d5d749d199e64ea67304d0ba4dc7c, type: 3}
+  - {fileID: 8300000, guid: 4301edca98d78cf4f8c0e86e159d5ff8, type: 3}
+  - {fileID: 8300000, guid: 629c0209f91ae9940803d857aabaa326, type: 3}
   _audioMixer: {fileID: 24100000, guid: 7f31f11a65e2545ae991cc750825f6d9, type: 2}

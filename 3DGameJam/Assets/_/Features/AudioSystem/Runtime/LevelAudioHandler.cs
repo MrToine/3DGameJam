@@ -44,6 +44,7 @@ namespace AudioSystem.Runtime
             if (scene.name == SceneLoader.CurrentSceneName)
             {
                 AudioManager.Instance.PlayLevelMusic();
+                AudioManager.Instance.SetMusicVolume(0.2f);
             }
         }
 
