@@ -45,7 +45,7 @@ namespace Character.Runtime.Player
             if (context.performed && GameManager.Instance.BattleAreaEnd == false && GameManager.Instance.IsOnPause == false)
             {
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.SfxLibrary[0]);
-                _shotCount = 15;
+                _shotCount = CurrentWeaponStat.m_magazine;
                 OnShotEvent?.Invoke(_shotCount);
             }
         }
@@ -54,7 +54,6 @@ namespace Character.Runtime.Player
         {
             if (context.performed && _shotCount >= 0 && GameManager.Instance.BattleAreaEnd == false && GameManager.Instance.IsOnPause == false && _shotCount > 0)
             {
-                CheckWeapon();
                 Shot();
             }
         }
