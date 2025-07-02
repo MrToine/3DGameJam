@@ -25,7 +25,6 @@ namespace Character.Runtime.Player
 
         void UpdateMagazine(int count)
         {
-            Info("On met à jour le magazine");
             _magazineText.text = count.ToString();
         }
 

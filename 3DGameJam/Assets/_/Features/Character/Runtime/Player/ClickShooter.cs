@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
+using AudioSystem.Runtime;
 using Character.SO;
 using Core.Runtime;
 using UnityEngine;
@@ -46,9 +43,9 @@ namespace Character.Runtime.Player
         public void Reload(InputAction.CallbackContext context)
         {
             Info("On tente de recharger");
-            if (context.performed)
+            if (context.performed && GameManager.Instance.BattleAreaEnd == false && GameManager.Instance.IsOnPause == false)
             {
-                Info("La touche à été pressée, on recharge");
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.SfxLibrary[0]);
                 _shotCount = 15;
                 OnShotEvent?.Invoke(_shotCount);
             }
@@ -56,7 +53,7 @@ namespace Character.Runtime.Player
 
         public void OnShot(InputAction.CallbackContext context)
         {
-            if (context.performed && _shotCount >= 0)
+            if (context.performed && _shotCount >= 0 && GameManager.Instance.BattleAreaEnd == false && GameManager.Instance.IsOnPause == false && _shotCount > 0)
             {
                 CheckWeapon();
                 Shot();
@@ -102,6 +99,7 @@ namespace Character.Runtime.Player
         /* Fonctions privées utiles */
         private void Shot()
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.SfxLibrary[1]);
             if (_shotCount >= 1)
             {
                 _shotCount--;

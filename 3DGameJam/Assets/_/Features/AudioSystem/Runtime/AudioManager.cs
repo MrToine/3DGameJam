@@ -21,6 +21,21 @@ namespace AudioSystem.Runtime
             SFX,
             Ambiance
         }
+        
+        public AudioSource MusicSource
+        {
+            get { return _musicSource; }
+        }
+
+        public AudioSource AmbianceSource
+        {
+            get { return _ambianceSource; }
+        }
+
+        public List<AudioClip> SfxLibrary
+        {
+            get { return _sfxLibrary; }
+        }
 
         #endregion
 
@@ -38,6 +53,12 @@ namespace AudioSystem.Runtime
             DontDestroyOnLoad(gameObject);
             
             _sfxSource = gameObject.AddComponent<AudioSource>();
+            _ambianceSource = gameObject.AddComponent<AudioSource>();
+            _musicSource = gameObject.AddComponent<AudioSource>();
+            
+            _sfxSource.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("SFX").FirstOrDefault();
+            _ambianceSource.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("Ambiance").FirstOrDefault();
+            _musicSource.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("Music").FirstOrDefault();
         }
 
         #endregion

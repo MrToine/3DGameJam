@@ -19,16 +19,13 @@ namespace MenuSystem.Runtime
 
         #region Unity API
 
-        private void OnEnable()
+        private void Start()
         {
             AudioManager.Instance.BinderVolume(_masterVolumeSlider, AudioManager.AudioChannel.Master);
             AudioManager.Instance.BinderVolume(_musicVolumeSlider, AudioManager.AudioChannel.Music);
             AudioManager.Instance.BinderVolume(_ambianceVolumeSlider, AudioManager.AudioChannel.Ambiance);
             AudioManager.Instance.BinderVolume(_sfxVolumeSlider, AudioManager.AudioChannel.SFX);
-        }
-
-        private void Start()
-        {
+        
             if (MenuManager.Instance != null)
             {
                 MenuManager.Instance.RegisterMenu(this);
