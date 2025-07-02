@@ -46,6 +46,7 @@ namespace WaveSystem.Runtime
             if (_countWaves >= _waves.Length)
             {
                 GameManager.Instance.BattleAreaEnd = true;
+                enabled = false;
             }
         }
 
@@ -73,6 +74,8 @@ namespace WaveSystem.Runtime
             {
                 yield return StartCoroutine(HandleSingleWave(wave));
             }
+            yield return new WaitForSeconds(1f);
+            GameManager.Instance.BattleAreaEnd = false;
         }
 
         private IEnumerator HandleSingleWave(WaveData wave)
