@@ -89,10 +89,10 @@ namespace ProjectileSystem.Runtime
         private Camera _camera;
         private float _timer;
         private StatDatas _stat;
+        private Transform _player;
 
         #endregion
     
-        private Transform _player;
 
     }
 }

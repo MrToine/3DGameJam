@@ -26,6 +26,7 @@ namespace Character.Runtime
         private void Awake()
         {
             _bulletSpawner = GetComponent<BulletSpawner>();
+            _player = GameObject.FindWithTag("Player").GetComponent<Player.Player>();
         }
 
         private void Update()
@@ -58,7 +59,8 @@ namespace Character.Runtime
             }
             else
             {
-                Info("L'ennemie attaque avec un hit direct");
+                Info("HIT");
+                _player.TakeDamage(_stat.AttackPower);
             }
             _isShooting = false;
         }
@@ -77,6 +79,7 @@ namespace Character.Runtime
         private EnemyType _enemyType;
         private GameObject _bulletPrefab;
         private StatDatas _stat;
+        private Player.Player _player;
 
         #endregion
     }
