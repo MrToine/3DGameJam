@@ -13,6 +13,7 @@ namespace Core.Runtime
 
         public static GameManager Instance { get; private set; }
         public static event Action OnGameOver;
+        public UnityEvent OnBattleAreaEnd;
         
         public bool IsOnPause
         {
@@ -24,6 +25,12 @@ namespace Core.Runtime
         {
             get => isOnGameOver;
             set => isOnGameOver = value;
+        }
+        
+        public bool BattleAreaEnd
+        {
+            get => isBattleAreaEnd;
+            set => isBattleAreaEnd = value;
         }
 
         #endregion
@@ -52,6 +59,11 @@ namespace Core.Runtime
             {
                 IsGameOver();
             }
+
+            if (BattleAreaEnd)
+            {
+                OnBattleAreaEnd?.Invoke();
+            }
         }
         
         #endregion
@@ -68,6 +80,12 @@ namespace Core.Runtime
         {
             string sceneName = SceneManager.GetActiveScene().name;
             _sceneLoader.LoadScene(sceneName);
+        }
+        
+        public void LoadScene(string sceneName)
+        {
+            Info("On charge un scene grâce au FakeLoading");
+            _sceneLoader.FakeLoading(sceneName);
         }
         
         #endregion
@@ -88,6 +106,7 @@ namespace Core.Runtime
 
         private bool isOnPause = false;
         private bool isOnGameOver = false;
+        private bool isBattleAreaEnd = false;
         
         SceneLoader _sceneLoader;
 

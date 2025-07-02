@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace Core.Runtime
 {
@@ -37,14 +39,44 @@ namespace Core.Runtime
             SceneManager.LoadScene(sceneName);
         }
 
+        public void FakeLoading(string nextSceneName)
+        {
+            Info("On vérifie que la scene Loading est disponible");
+            if (SceneExists("Loading"))
+            {
+                Info("On charge la scene Loading");
+                LoadScene("Loading");
+                StartCoroutine(WaitingLoading(nextSceneName));
+            }
+        }
+
         #endregion
 
 
         #region Utils
 
+        private IEnumerator WaitingLoading(string nextSceneName)
+        {
+            int time = Random.Range(3, 6);
+            yield return new WaitForSeconds(time);
+            LoadScene(nextSceneName);
+        }
+
         private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             OnSceneLoaded?.Invoke(scene);
+        }
+        
+        private bool SceneExists(string sceneName)
+        {
+            for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                string path = SceneUtility.GetScenePathByBuildIndex(i);
+                string name = System.IO.Path.GetFileNameWithoutExtension(path);
+                if (name == sceneName)
+                    return true;
+            }
+            return false;
         }
         
         #endregion

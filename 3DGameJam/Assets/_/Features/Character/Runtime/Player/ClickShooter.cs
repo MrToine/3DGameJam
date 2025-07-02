@@ -1,7 +1,12 @@
+using System;
+using System.Collections;
+using System.Diagnostics;
 using Character.SO;
 using Core.Runtime;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 namespace Character.Runtime.Player
 {
@@ -9,8 +14,14 @@ namespace Character.Runtime.Player
     {
 
         #region Publics
+        
+        public UnityEvent<int> OnShotEvent;
 
-        //
+        public enum WeaponType
+        {
+            Gun,
+            Shotgun,
+        }
 
         #endregion
 
@@ -19,8 +30,10 @@ namespace Character.Runtime.Player
 
         private void Awake()
         {
+            _currentWeapon = WeaponType.Gun;
             _characterStat = GetComponent<CharacterStat>();
             _camera = Camera.main;
+            _shotCount = 15;
         }
 
         #endregion
@@ -28,14 +41,55 @@ namespace Character.Runtime.Player
 
         #region Main Methods
 
+        public void Reload(InputAction.CallbackContext context)
+        {
+            if (context.performed && _shotCount == 0)
+            {
+                _shotCount = 15;
+                OnShotEvent?.Invoke(_shotCount);
+            }
+        }
+
         public void OnShot(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && _shotCount >= 0)
             {
+                CheckWeapon();
                 Shot();
             }
         }
-        
+
+        public void Weapon1(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _currentWeapon = WeaponType.Gun;
+            }
+        }
+        public void Weapon2(InputAction.CallbackContext context)
+        {
+            if (context.performed && m_shotgunUnlocked)
+            {
+                _currentWeapon = WeaponType.Shotgun;
+            }
+        }
+        private void CheckWeapon()
+        {
+           switch(_currentWeapon){
+
+               case  WeaponType.Gun:
+                   _radius = _gunStats.m_radius;
+                   _damage = _gunStats.m_damage;
+                   break;
+               case WeaponType.Shotgun:
+               
+                   _radius = _shotGunStats.m_radius;
+                   _damage = _shotGunStats.m_damage;
+                   _shotGunFallOffDistance = _shotGunStats.m_shotGunFallOffDistance;
+                   break;  
+               
+           }
+        }
         #endregion
 
 
@@ -44,14 +98,34 @@ namespace Character.Runtime.Player
         /* Fonctions privées utiles */
         private void Shot()
         {
+            _shotCount--;
+            OnShotEvent?.Invoke(_shotCount);
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 100f, _enemyLayer))
+            if (_radius > 0f)
             {
-                if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
+                RaycastHit[] hits = Physics.SphereCastAll(ray, _radius, 200,_enemyLayer);
+                // Shotgun : SphereCast
+                
+                foreach (RaycastHit hit in hits)
                 {
-                    Info("Je tire sur ta race de merde l'ennemie");
-                    damageable.TakeDamage(_characterStat.AttackPower);
+                    Debug.Log("Distance: " + hit.distance);
+                    
+                    if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
+                    {
+                        damageable.TakeDamage(hit.distance > _shotGunFallOffDistance ? _damage/2 : _damage);
+                    }
+                }
+            }
+            else
+            {
+                if (Physics.Raycast(ray, out RaycastHit hit, 100f, _enemyLayer))
+                {
+                    if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
+                    {
+                        Info("Je tire sur ta race de merde l'ennemie");
+                        damageable.TakeDamage(_damage);
+                    }
                 }
             }
         }
@@ -64,8 +138,19 @@ namespace Character.Runtime.Player
         [Header("References")]
         [SerializeField] private LayerMask _enemyLayer;
 
+        [SerializeField] private WeaponStat _shotGunStats;
+        [SerializeField] private WeaponStat _gunStats;
+
         private Camera _camera;
         private CharacterStat _characterStat;
+
+        public bool m_shotgunUnlocked;
+        public WeaponType _currentWeapon;
+        private float _radius;
+        private int _damage;
+        private float _shotGunFallOffDistance;
+        private int _shotCount;
+        private bool _canReload = false;
 
         #endregion
 
