@@ -41,7 +41,14 @@ namespace CombatArea.Runtime
 
         void KeepGoing()
         {
-
+            if (_stopPlayer == false)
+            {
+                _gunPrefab.SetActive(true);
+            }
+            else
+            {
+                _gunPrefab.SetActive(false);
+            }
             if (_splineContainer.AutomaticDolly.Method is SplineAutoDolly.FixedSpeed autodolly)
             {
 
