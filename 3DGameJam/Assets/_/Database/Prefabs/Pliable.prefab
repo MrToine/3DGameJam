@@ -230,6 +230,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3ed619f2-6fe1-4c02-bc6b-01b0fae3bebc
+    m_ActionName: 'Player/Weapon1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d6206f3d-0f5d-4ae8-8314-7a64a14c4620
+    m_ActionName: 'Player/Weapon2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 88e2377e-d7c7-4044-84a9-81a14238beac
+    m_ActionName: 'Player/ReloadMagazine[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -315,9 +327,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isVerbose: 1
-  _enemyLayer:
+  OnShotEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _enemyLayers:
     serializedVersion: 2
-    m_Bits: 536870912
+    m_Bits: 3758096384
+  _obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 65
+  _shotGunStats: {fileID: 11400000, guid: 021d6115ca2644471a93bec53ef2eb84, type: 2}
+  _gunStats: {fileID: 11400000, guid: 048415625afe04ab5be8c9dc2ce7731d, type: 2}
+  m_shotgunUnlocked: 0
+  _currentWeapon: 0
 --- !u!1 &4178443967510548702
 GameObject:
   m_ObjectHideFlags: 0
