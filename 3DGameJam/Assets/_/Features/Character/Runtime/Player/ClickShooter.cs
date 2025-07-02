@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Character.SO;
 using Core.Runtime;
 using UnityEngine;
@@ -85,34 +87,52 @@ namespace Character.Runtime.Player
         private void Shot()
         {
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            Vector3 origin = _camera.transform.position;
 
-            if (_radius > 0f)
+            if (_currentWeapon == WeaponType.Shotgun)
             {
-                RaycastHit[] hits = Physics.SphereCastAll(ray, _radius, 200,_enemyLayer);
-                // Shotgun : SphereCast
-                
+                RaycastHit[] hits = Physics.SphereCastAll(ray, _radius, 200f, _enemyLayers);
+
                 foreach (RaycastHit hit in hits)
                 {
-                    Debug.Log("Distance: " + hit.distance);
-                    
+                    Vector3 targetPoint = hit.point;
+                    float distance = Vector3.Distance(origin, targetPoint);
+
+                    // Obstacle check
+                    if (Physics.Raycast(origin, (targetPoint - origin).normalized, out RaycastHit blockHit, distance, _obstacleLayers))
+                    {
+                        // Un mur bloque la vue vers l'ennemi → on ignore
+                        continue;
+                    }
+
                     if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
                     {
-                        damageable.TakeDamage(hit.distance > _shotGunFallOffDistance ? _damage/2 : _damage);
+                        int finalDamage = hit.distance > _shotGunFallOffDistance ? _damage / 2 : _damage;
+                        damageable.TakeDamage(finalDamage);
                     }
                 }
             }
-            else
+            else if (_currentWeapon == WeaponType.Gun)
             {
-                if (Physics.Raycast(ray, out RaycastHit hit, 100f, _enemyLayer))
+                // On cast sur tout ce qui peut bloquer (ennemis + obstacles)
+                if (Physics.Raycast(ray, out RaycastHit hit, 100f, _enemyLayers | _obstacleLayers))
                 {
-                    if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
+                    // On vérifie si c’est un ennemi
+                    if (((1 << hit.collider.gameObject.layer) & _enemyLayers) != 0)
                     {
-                        Info("Je tire sur ta race de merde l'ennemie");
-                        damageable.TakeDamage(_damage);
+                        if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
+                        {
+                            damageable.TakeDamage(_damage);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Tir bloqué par : " + hit.collider.name);
                     }
                 }
             }
         }
+
 
         #endregion
 
@@ -120,7 +140,9 @@ namespace Character.Runtime.Player
         #region Privates and Protected
 
         [Header("References")]
-        [SerializeField] private LayerMask _enemyLayer;
+        //[SerializeField] private LayerMask _enemyLayer;
+        [SerializeField] private LayerMask _enemyLayers;
+        [SerializeField] private LayerMask _obstacleLayers;
 
         [SerializeField] private WeaponStat _shotGunStats;
         [SerializeField] private WeaponStat _gunStats;
