@@ -45,8 +45,10 @@ namespace Character.Runtime.Player
 
         public void Reload(InputAction.CallbackContext context)
         {
-            if (context.performed && _shotCount == 0)
+            Info("On tente de recharger");
+            if (context.performed)
             {
+                Info("La touche à été pressée, on recharge");
                 _shotCount = 15;
                 OnShotEvent?.Invoke(_shotCount);
             }
@@ -100,8 +102,11 @@ namespace Character.Runtime.Player
         /* Fonctions privées utiles */
         private void Shot()
         {
-            _shotCount--;
-            OnShotEvent?.Invoke(_shotCount);
+            if (_shotCount >= 1)
+            {
+                _shotCount--;
+                OnShotEvent?.Invoke(_shotCount);
+            }
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             Vector3 origin = _camera.transform.position;
 
@@ -140,11 +145,19 @@ namespace Character.Runtime.Player
                         {
                             damageable.TakeDamage(_damage);
                         }
+                        else
+                        {
+                            Warning("La cible n'a pas de composant IDamageable");
+                        }
                     }
                     else
                     {
                         Debug.Log("Tir bloqué par : " + hit.collider.name);
                     }
+                }
+                else
+                {
+                    Warning("Cible hors de portée");
                 }
             }
         }

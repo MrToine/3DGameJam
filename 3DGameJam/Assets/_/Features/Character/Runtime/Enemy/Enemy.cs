@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Character.Runtime
 {
-    public class Enemy : BaseMonobehaviour
+    public class Enemy : BaseMonobehaviour, IDamageable
     {
 
         private void Awake()
