@@ -165,8 +165,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586222164167787272}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.6943381, z: 0, w: 0.71964896}
-  m_LocalPosition: {x: -0.319437, y: 0.25, z: -0.021447897}
+  m_LocalRotation: {x: 0.0000000071263475, y: 0.99890745, z: 3.3339365e-10, w: 0.04673213}
+  m_LocalPosition: {x: 0, y: 1, z: 10.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -425,38 +425,6 @@ PrefabInstance:
       propertyPath: m_isVerbose
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: _gunStats
-      value: 
-      objectReference: {fileID: 11400000, guid: 048415625afe04ab5be8c9dc2ce7731d, type: 2}
-    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: _renderer
-      value: 
-      objectReference: {fileID: 6340313597243110804}
-    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: _meshFilter
-      value: 
-      objectReference: {fileID: 8077670845697343838}
-    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: m_isVerbose
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: _shotGunStats
-      value: 
-      objectReference: {fileID: 11400000, guid: 021d6115ca2644471a93bec53ef2eb84, type: 2}
-    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: m_shotgunUnlocked
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: _enemyLayers.m_Bits
-      value: 3758096384
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6059228208131324665, guid: 0e7913216496e4b509348b270490cc62, type: 3}
     m_RemovedGameObjects:
@@ -480,13 +448,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ffc5ce71e7443a9f80b315fcf780de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!23 &6340313597243110804 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 844654262980099744, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-  m_PrefabInstance: {fileID: 6648862315145038644}
-  m_PrefabAsset: {fileID: 0}
---- !u!33 &8077670845697343838 stripped
-MeshFilter:
-  m_CorrespondingSourceObject: {fileID: 3196473654340897386, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-  m_PrefabInstance: {fileID: 6648862315145038644}
-  m_PrefabAsset: {fileID: 0}
