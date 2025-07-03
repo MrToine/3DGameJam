@@ -2910,7 +2910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_Pivot.y
@@ -2918,7 +2918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2926,7 +2926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_AnchorMin.y
@@ -2934,11 +2934,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2987,6 +2999,10 @@ PrefabInstance:
     - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778690193219622780, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8840339775904409220, guid: b3db5227ca6db475180c89c77bbee4a7, type: 3}
       propertyPath: _health
@@ -7348,6 +7364,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2080099924451712948, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
+      propertyPath: _cursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 5ba8b57e66d10684fa9c55f085068f20, type: 3}
     - target: {fileID: 2772257213010178099, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 132.03769
@@ -10287,7 +10307,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142858
   m_Depth: 0
@@ -10873,7 +10893,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -11853,9 +11873,9 @@ MonoBehaviour:
         z: 4.7592583
       Rotation:
         value:
-          x: 0.0045536724
+          x: 0.004553672
           y: -0.5591909
-          z: -0.006750805
+          z: -0.0067508053
           w: 0.8289989
     - Position:
         x: -30.9
@@ -12139,7 +12159,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -13221,7 +13241,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -13707,7 +13727,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -13897,7 +13917,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -14087,7 +14107,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -15206,7 +15226,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -15482,7 +15502,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142858
   m_Depth: 0
