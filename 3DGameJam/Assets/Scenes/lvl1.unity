@@ -2230,7 +2230,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 2106174432}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &321924319
 BoxCollider:
@@ -2644,7 +2644,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 291640022}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &356767317
 BoxCollider:
@@ -4518,7 +4518,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 422247279}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &591404778
 BoxCollider:
@@ -5121,7 +5121,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 100220205}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &674936050
 BoxCollider:
@@ -5351,7 +5351,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 1517926163}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &675821211
 BoxCollider:
@@ -5909,7 +5909,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 2075317014}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!4 &730137912 stripped
 Transform:
@@ -6574,7 +6574,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 1303623394}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &807712633
 BoxCollider:
@@ -12831,7 +12831,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 1295090004}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &1850763327
 BoxCollider:
@@ -14611,7 +14611,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 979503996}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &2063041828
 BoxCollider:
@@ -15629,7 +15629,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 2022491993}
   _currentCamera: {fileID: 64622562}
-  _gunPrefab: {fileID: 0}
+  _gunPrefab: {fileID: 2093065771}
   _splineContainer: {fileID: 1791542304}
 --- !u!65 &2147389354
 BoxCollider:
