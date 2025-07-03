@@ -2,6 +2,7 @@ using System.Collections;
 using Core.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Character.Runtime.Player
 {
@@ -11,6 +12,7 @@ namespace Character.Runtime.Player
 
         private void Awake()
         {
+            _magazineImg = GetComponentInChildren<Image>();
             _magazineText = GetComponentInChildren<TMP_Text>();
             _clickShooter.OnShotEvent.AddListener(UpdateMagazine);
             _clickShooter.OnEmptyMagazieEvent.AddListener(() => StartBlinking(_reloadMagazineText, _reloadFlashColor));
@@ -19,6 +21,7 @@ namespace Character.Runtime.Player
 
         void UpdateMagazine(int count)
         {
+            _magazineImg.gameObject.SetActive(true);
             StopBlinking();
             _magazineText.text = count.ToString();
             _magazineText.color = _defaultColor;
@@ -34,6 +37,7 @@ namespace Character.Runtime.Player
             _magazineText.text = message;
             _magazineText.color = flashColor;
             _blinkRoutine = StartCoroutine(FadeText(flashColor));
+            _magazineImg.gameObject.SetActive(false);
         }
 
         private void StopBlinking()
@@ -43,7 +47,7 @@ namespace Character.Runtime.Player
                 StopCoroutine(_blinkRoutine);
                 _blinkRoutine = null;
             }
-
+            
             _magazineText.color = _defaultColor;
         }
 
@@ -81,6 +85,7 @@ namespace Character.Runtime.Player
 
         private TMP_Text _magazineText;
         private Coroutine _blinkRoutine;
+        private Image _magazineImg;
 
         [Header( "Reference Player")]
         [SerializeField] private ClickShooter _clickShooter;
