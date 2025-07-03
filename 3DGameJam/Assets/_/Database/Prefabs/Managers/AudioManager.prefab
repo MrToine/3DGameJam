@@ -52,4 +52,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4b7d5d749d199e64ea67304d0ba4dc7c, type: 3}
   - {fileID: 8300000, guid: 4301edca98d78cf4f8c0e86e159d5ff8, type: 3}
   - {fileID: 8300000, guid: 629c0209f91ae9940803d857aabaa326, type: 3}
+  - {fileID: 8300000, guid: 7fb9834759853b046a0a01e7f8438a1e, type: 3}
+  - {fileID: 8300000, guid: 6405a58742afc6e4c84620cd65624456, type: 3}
+  - {fileID: 8300000, guid: 78ad2be811071db459ad789f59f9f3d2, type: 3}
+  - {fileID: 8300000, guid: 3077fb5e63ba77c4ba36100acf2a2bb0, type: 3}
+  - {fileID: 8300000, guid: 720b57a4b4346cf44b31e1d21754da99, type: 3}
+  - {fileID: 8300000, guid: 011fb32620b1a8b409fc2af399312f1a, type: 3}
   _audioMixer: {fileID: 24100000, guid: 7f31f11a65e2545ae991cc750825f6d9, type: 2}

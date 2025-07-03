@@ -1,6 +1,8 @@
 using System;
+using AudioSystem.Runtime;
 using Core.Runtime;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Character.Runtime.Player
 {
@@ -12,7 +14,6 @@ namespace Character.Runtime.Player
         private void Awake()
         {
             _characterStat = GetComponent<CharacterStat>();
-            _screenFlash = GetComponentInChildren<ScreenDamageFlash>();
         }
 
         private void Update()
@@ -27,12 +28,15 @@ namespace Character.Runtime.Player
 
         public void TakeDamage(int amount)
         {
+            int nbHurt = Random.Range(1, 5);
+            string sfxName = "hurt" + nbHurt.ToString();
+            AudioManager.Instance.PlaySFXByName(sfxName);
             _screenFlash.Flash();
             _characterStat.TakeDamage(amount);
             Info($"Le joueur prend {amount} degats, il lui reste {_characterStat.CurrentHealth} PV");
         }
         
-        private ScreenDamageFlash _screenFlash;
+        [SerializeField] private ScreenDamageFlash _screenFlash;
     }
 }
 
