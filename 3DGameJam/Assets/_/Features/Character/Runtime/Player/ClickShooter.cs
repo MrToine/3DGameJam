@@ -13,9 +13,7 @@ namespace Character.Runtime.Player
     {
 
         #region Publics
-
-        public MeshRenderer m_gunRenderer;
-        public MeshRenderer m_shotGunRenderer;
+        
         public UnityEvent<int> OnShotEvent;
         public UnityEvent OnEmptyMagazieEvent;
         public UnityEvent OnReloadingEvent;
@@ -38,6 +36,9 @@ namespace Character.Runtime.Player
             CheckWeapon();
             _characterStat = GetComponent<CharacterStat>();
             _camera = Camera.main;
+            _currentShotGunAmmo = _shotGunStats.m_magazine;
+            _currentGunAmmo = _gunStats.m_magazine;
+            _shotCount = _currentGunAmmo;
         }
 
         private void Update()
@@ -88,7 +89,9 @@ namespace Character.Runtime.Player
             {
                 _currentWeapon = WeaponType.Gun;
                 CheckWeapon();
-                
+                _shotCount = _currentGunAmmo;
+
+
             }
         }
         public void Weapon2(InputAction.CallbackContext context)
@@ -98,7 +101,9 @@ namespace Character.Runtime.Player
                 
                 _currentWeapon = WeaponType.Shotgun;
                 CheckWeapon();
-                
+                _shotCount = _currentShotGunAmmo;
+
+
             }
         }
         private void CheckWeapon()
@@ -158,6 +163,7 @@ namespace Character.Runtime.Player
                         damageable.TakeDamage(finalDamage);
                     }
                 }
+                _currentShotGunAmmo = _shotCount;
             }
             else if (_currentWeapon == WeaponType.Gun)
             {
@@ -185,6 +191,8 @@ namespace Character.Runtime.Player
                 {
                     Warning("Cible hors de portée");
                 }
+                
+                _currentGunAmmo = _shotCount;
             }
         }
 
@@ -207,6 +215,10 @@ namespace Character.Runtime.Player
         private Camera _camera;
         private CharacterStat _characterStat;
 
+
+        private int _currentGunAmmo;
+        private int _currentShotGunAmmo;
+        
         public bool m_shotgunUnlocked;
         public WeaponType _currentWeapon;
         private float _radius;
