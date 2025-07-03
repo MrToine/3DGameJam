@@ -477,11 +477,6 @@ PrefabInstance:
       addedObject: {fileID: 1403295643}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51880bbabe8f0412cb6a05a3ed9d77b4, type: 3}
---- !u!1 &181284198 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1093714467228714728, guid: 51880bbabe8f0412cb6a05a3ed9d77b4, type: 3}
-  m_PrefabInstance: {fileID: 181284197}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &181284199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3907395814699800760, guid: 51880bbabe8f0412cb6a05a3ed9d77b4, type: 3}
@@ -608,11 +603,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4fe61cfc4714ea7a343d6144552a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dollySpeed: 3
+  m_dollySpeed: 1
   _stopPlayer: 0
   _camera: {fileID: 2090021672}
   _currentCamera: {fileID: 2090021672}
-  _gunPrefab: {fileID: 181284198}
+  _gunPrefab: {fileID: 0}
   _splineContainer: {fileID: 874505480}
 --- !u!65 &446026640
 BoxCollider:
@@ -787,11 +782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4fe61cfc4714ea7a343d6144552a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dollySpeed: 2
+  m_dollySpeed: 1
   _stopPlayer: 0
   _camera: {fileID: 2090021672}
   _currentCamera: {fileID: 2090021672}
-  _gunPrefab: {fileID: 181284198}
+  _gunPrefab: {fileID: 0}
   _splineContainer: {fileID: 874505480}
 --- !u!65 &463286320
 BoxCollider:
@@ -1783,11 +1778,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4fe61cfc4714ea7a343d6144552a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dollySpeed: 2
+  m_dollySpeed: 1
   _stopPlayer: 0
   _camera: {fileID: 2090021672}
   _currentCamera: {fileID: 2090021672}
-  _gunPrefab: {fileID: 181284198}
+  _gunPrefab: {fileID: 0}
   _splineContainer: {fileID: 874505480}
 --- !u!65 &995333318
 BoxCollider:
@@ -2531,7 +2526,7 @@ MonoBehaviour:
   _stopPlayer: 1
   _camera: {fileID: 846717506}
   _currentCamera: {fileID: 2090021672}
-  _gunPrefab: {fileID: 181284198}
+  _gunPrefab: {fileID: 0}
   _splineContainer: {fileID: 874505480}
 --- !u!65 &1506029064
 BoxCollider:
@@ -2711,11 +2706,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4fe61cfc4714ea7a343d6144552a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dollySpeed: 2
+  m_dollySpeed: 1
   _stopPlayer: 0
   _camera: {fileID: 2090021672}
   _currentCamera: {fileID: 2090021672}
-  _gunPrefab: {fileID: 181284198}
+  _gunPrefab: {fileID: 0}
   _splineContainer: {fileID: 874505480}
 --- !u!65 &1554213454
 BoxCollider:
@@ -2981,11 +2976,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4fe61cfc4714ea7a343d6144552a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dollySpeed: 2
+  m_dollySpeed: 1
   _stopPlayer: 0
   _camera: {fileID: 2090021672}
   _currentCamera: {fileID: 2090021672}
-  _gunPrefab: {fileID: 181284198}
+  _gunPrefab: {fileID: 0}
   _splineContainer: {fileID: 874505480}
 --- !u!65 &1844008950
 BoxCollider:
@@ -3030,11 +3025,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4fe61cfc4714ea7a343d6144552a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dollySpeed: 3
+  m_dollySpeed: 1
   _stopPlayer: 0
   _camera: {fileID: 2090021672}
   _currentCamera: {fileID: 2090021672}
-  _gunPrefab: {fileID: 181284198}
+  _gunPrefab: {fileID: 0}
   _splineContainer: {fileID: 874505480}
 --- !u!65 &1844147069
 BoxCollider:
@@ -3271,11 +3266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4fe61cfc4714ea7a343d6144552a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dollySpeed: 2
+  m_dollySpeed: 1
   _stopPlayer: 0
   _camera: {fileID: 2090021672}
   _currentCamera: {fileID: 2090021672}
-  _gunPrefab: {fileID: 181284198}
+  _gunPrefab: {fileID: 0}
   _splineContainer: {fileID: 874505480}
 --- !u!65 &1986202044
 BoxCollider:
