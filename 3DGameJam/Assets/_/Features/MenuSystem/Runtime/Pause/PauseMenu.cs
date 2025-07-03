@@ -3,7 +3,6 @@ using Core.Runtime;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Cursor = UnityEngine.Cursor;
 
 namespace MenuSystem.Runtime
 {
@@ -39,8 +38,6 @@ namespace MenuSystem.Runtime
                 {
                         IsOpen = !IsOpen;
                         Time.timeScale = IsOpen ? 0 : 1;
-                        Cursor.visible = IsOpen;
-                        Cursor.lockState = IsOpen ? CursorLockMode.None : CursorLockMode.Locked;
                         GameManager.Instance.IsOnPause = IsOpen;
                         
                         _panel.gameObject.SetActive(IsOpen);
