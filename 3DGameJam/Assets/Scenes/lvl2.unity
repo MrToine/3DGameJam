@@ -998,10 +998,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4643252562367435649, guid: bddbd92ef0d024a10be37d4ffe123cfc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 265
+      objectReference: {fileID: 0}
     - target: {fileID: 5288057413538842481, guid: bddbd92ef0d024a10be37d4ffe123cfc, type: 3}
       propertyPath: _clickShooter
       value: 
       objectReference: {fileID: 1918736846}
+    - target: {fileID: 7357585928401386354, guid: bddbd92ef0d024a10be37d4ffe123cfc, type: 3}
+      propertyPath: m_text
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357585928401386354, guid: bddbd92ef0d024a10be37d4ffe123cfc, type: 3}
+      propertyPath: m_fontSize
+      value: 57.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357585928401386354, guid: bddbd92ef0d024a10be37d4ffe123cfc, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 57.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
