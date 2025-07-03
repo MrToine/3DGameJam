@@ -1,3 +1,4 @@
+using System;
 using AudioSystem.Runtime;
 using Character.SO;
 using Core.Runtime;
@@ -15,6 +16,8 @@ namespace Character.Runtime.Player
         
         public UnityEvent<int> OnShotEvent;
         public UnityEvent OnEmptyMagazieEvent;
+        public UnityEvent OnReloadingEvent;
+        
 
         public enum WeaponType
         {
@@ -35,6 +38,21 @@ namespace Character.Runtime.Player
             _camera = Camera.main;
         }
 
+        private void Update()
+        {
+            if (_isReloading)
+            {
+                _counter += Time.deltaTime;
+                if (_counter >= _reloadTime)
+                {
+                    _isReloading = false;
+                    _shotCount = CurrentWeaponStat.m_magazine;
+                    OnShotEvent?.Invoke(_shotCount);
+                    _counter = 0;
+                }
+            }
+        }
+
         #endregion
 
 
@@ -44,9 +62,10 @@ namespace Character.Runtime.Player
         {
             if (context.performed && GameManager.Instance.BattleAreaEnd == false && GameManager.Instance.IsOnPause == false)
             {
+                _isReloading = true;
+                OnReloadingEvent.Invoke();
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.SfxLibrary[0]);
-                _shotCount = CurrentWeaponStat.m_magazine;
-                OnShotEvent?.Invoke(_shotCount);
+              
             }
         }
 
@@ -54,6 +73,7 @@ namespace Character.Runtime.Player
         {
             if (context.performed && _shotCount >= 0 && GameManager.Instance.BattleAreaEnd == false && GameManager.Instance.IsOnPause == false && _shotCount > 0)
             {
+                if (_isReloading) return;
                 Shot();
             }
         }
@@ -81,6 +101,7 @@ namespace Character.Runtime.Player
            _radius = CurrentWeaponStat.m_radius;
            _damage = CurrentWeaponStat.m_damage;
            _shotCount = CurrentWeaponStat.m_magazine;
+           _reloadTime = CurrentWeaponStat.m_reloadTime;
            _shotGunFallOffDistance = CurrentWeaponStat.m_shotGunFallOffDistance;
         }
         #endregion
@@ -182,11 +203,15 @@ namespace Character.Runtime.Player
         private int _damage;
         private float _shotGunFallOffDistance;
         private int _shotCount;
+        private float _reloadTime;
+        private bool _isReloading;
+        private float _counter;
         private bool _canReload = false;
 
         
         private WeaponStat CurrentWeaponStat =>
             _currentWeapon == WeaponType.Gun ? _gunStats : _shotGunStats;
+
 
         #endregion
 
