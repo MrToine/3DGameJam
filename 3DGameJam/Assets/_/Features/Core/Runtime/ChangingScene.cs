@@ -24,7 +24,10 @@ namespace Core.Runtime
 
         #region Main Methods
 
-        // 
+        public void SetNextScene(string nextScene)
+        {
+            SceneLoader.Instance.FakeLoading(nextScene);
+        }
 
         #endregion
 

@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!1001 &6648862315145038644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -862,6 +862,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.27
       objectReference: {fileID: 0}
+    - target: {fileID: 5526633296722343142, guid: 0e7913216496e4b509348b270490cc62, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6455949531023226382, guid: 0e7913216496e4b509348b270490cc62, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -911,6 +915,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 048415625afe04ab5be8c9dc2ce7731d, type: 2}
     - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
       propertyPath: m_isVerbose
       value: 1
       objectReference: {fileID: 0}
@@ -944,7 +952,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6648862315145038644}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01ffc5ce71e7443a9f80b315fcf780de, type: 3}
   m_Name: 

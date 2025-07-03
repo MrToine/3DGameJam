@@ -1,7 +1,8 @@
+using System;
 using Core.Runtime;
 using DG.Tweening;
 using UnityEngine;
-using Cursor = UnityEngine.Cursor;
+using UnityEngine.InputSystem;
 
 namespace MenuSystem.Runtime
 {
@@ -15,7 +16,7 @@ namespace MenuSystem.Runtime
 
 
                 #region Unity API
-
+                
                 void Update()
                 {
                         if (IsOpen)
@@ -37,8 +38,6 @@ namespace MenuSystem.Runtime
                 {
                         IsOpen = !IsOpen;
                         Time.timeScale = IsOpen ? 0 : 1;
-                        Cursor.visible = IsOpen;
-                        Cursor.lockState = IsOpen ? CursorLockMode.None : CursorLockMode.Locked;
                         GameManager.Instance.IsOnPause = IsOpen;
                         
                         _panel.gameObject.SetActive(IsOpen);
@@ -80,7 +79,8 @@ namespace MenuSystem.Runtime
                         Info("On slide IN");
                         //_panel.position = new Vector2(200, _panel.position.y);
                         _panel.transform.DOMove(new Vector3(99, _panel.position.y, 0), 0.3f).SetEase(Ease.Linear).SetUpdate(true);
-
+                        //_inputActionAsset.actionMaps[0].Disable();
+                        //_inputActionAsset.actionMaps[1].Enable();
                 }
                 
                 private void SlideOut()
@@ -88,6 +88,8 @@ namespace MenuSystem.Runtime
                         Info("On slide OUT");
                         //_panel.position = new Vector2(-200, _panel.position.y);
                         _panel.transform.DOMove(new Vector3(-100, _panel.position.y, 0), 0.3f).SetEase(Ease.Linear);
+                        //_inputActionAsset.actionMaps[0].Enable();
+                        //_inputActionAsset.actionMaps[1].Disable();
                 }
             
                 #endregion
@@ -98,6 +100,8 @@ namespace MenuSystem.Runtime
                 [Header("Referencement")]
                 [SerializeField] private RectTransform _panel;
                 [SerializeField] private GameObject _defaultFocusPanel;
+                [Header("Input Settings")]
+                [SerializeField] private InputActionAsset _inputActionAsset;
 
                 #endregion
         }
