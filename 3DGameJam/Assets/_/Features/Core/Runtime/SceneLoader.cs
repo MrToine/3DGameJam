@@ -29,6 +29,11 @@ namespace Core.Runtime
             SceneManager.sceneLoaded -= HandleSceneLoaded;
         }
 
+        void OnCollisionEnter(Collision other)
+        {
+            FakeLoading(_nextScene);
+        }
+
         #endregion
 
 
@@ -44,7 +49,6 @@ namespace Core.Runtime
             Info("On vérifie que la scene Loading est disponible");
             if (SceneExists("Loading"))
             {
-                Info("On charge la scene Loading");
                 LoadScene("Loading");
                 StartCoroutine(WaitingLoading(nextSceneName));
             }
@@ -84,7 +88,7 @@ namespace Core.Runtime
 
         #region Privates and Protected
 
-        // Variables privées
+        [SerializeField] private string _nextScene;
 
         #endregion
     }
