@@ -31,6 +31,7 @@ namespace Character.Runtime
 
         private void Update()
         {
+            if(GameManager.Instance.IsOnGameOver || GameManager.Instance.IsOnPause) return;
             if (!_isShooting)
             {
                 StartCoroutine(Waiting());

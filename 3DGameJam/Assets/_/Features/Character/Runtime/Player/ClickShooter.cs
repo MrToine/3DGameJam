@@ -42,6 +42,8 @@ namespace Character.Runtime.Player
 
         private void Update()
         {
+            if(GameManager.Instance.IsOnGameOver || GameManager.Instance.IsOnPause) return;
+            
             if (_isReloading)
             {
                 _counter += Time.deltaTime;
