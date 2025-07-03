@@ -3,7 +3,72 @@ guid: b94d3c1227437d04cae3c6613937c634
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueCube
+    second: {fileID: 2100000, guid: 9c26ae920937bba4e91cfd8f4b9bbe92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GreenCube
+    second: {fileID: 2100000, guid: 908a629c147dc4542a059e82432b4a67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: ddb16d42914f58949924a78cbfd1099c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 9a6543de41b39b047b455eb38a097d63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OrangeCube
+    second: {fileID: 2100000, guid: 3d9a0e13f119fbe41858ef4cda98eb7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedCube
+    second: {fileID: 2100000, guid: da734b458bfd12d408789a5462ec0460, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tex_LL_Ground
+    second: {fileID: 2100000, guid: e0c19a5c76b275249aa37e6071b86c8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tex_LL_Obstacle
+    second: {fileID: 2100000, guid: 58d7769b6b72f1d43b572f7cb68b8024, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tex_LL_Player.001
+    second: {fileID: 2100000, guid: 8e9ba11d41ca860409efdefc2551ece8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tex_LL_Rose
+    second: {fileID: 2100000, guid: fcda5a2cb4764e94e8cf14b850bb68a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tex_LL_Void
+    second: {fileID: 2100000, guid: 793465736266a4549ad93c8017300bf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tex_LL_Wall
+    second: {fileID: 2100000, guid: 60ab3517038440b428d35fd5e3524474, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tex_LL_Wall.001
+    second: {fileID: 2100000, guid: fedced4d5db9c7b46ac7b96647eef51f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
