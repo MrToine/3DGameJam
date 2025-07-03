@@ -915,8 +915,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 048415625afe04ab5be8c9dc2ce7731d, type: 2}
     - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: _renderer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
+      propertyPath: _meshFilter
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8965435342634737552, guid: 0e7913216496e4b509348b270490cc62, type: 3}
       propertyPath: m_isVerbose
@@ -952,7 +956,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6648862315145038644}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01ffc5ce71e7443a9f80b315fcf780de, type: 3}
   m_Name: 

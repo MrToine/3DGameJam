@@ -13,7 +13,9 @@ namespace Character.Runtime.Player
     {
 
         #region Publics
-        
+
+        public MeshRenderer m_gunRenderer;
+        public MeshRenderer m_shotGunRenderer;
         public UnityEvent<int> OnShotEvent;
         public UnityEvent OnEmptyMagazieEvent;
         public UnityEvent OnReloadingEvent;
@@ -91,6 +93,7 @@ namespace Character.Runtime.Player
         {
             if (context.performed && m_shotgunUnlocked)
             {
+                
                 _currentWeapon = WeaponType.Shotgun;
                 CheckWeapon();
                 
@@ -103,6 +106,9 @@ namespace Character.Runtime.Player
            _shotCount = CurrentWeaponStat.m_magazine;
            _reloadTime = CurrentWeaponStat.m_reloadTime;
            _shotGunFallOffDistance = CurrentWeaponStat.m_shotGunFallOffDistance;
+           _renderer.material = CurrentWeaponStat.m_material;
+           _meshFilter.mesh = CurrentWeaponStat.m_mesh;
+
         }
         #endregion
 
@@ -194,6 +200,8 @@ namespace Character.Runtime.Player
         [SerializeField] private WeaponStat _shotGunStats;
         [SerializeField] private WeaponStat _gunStats;
 
+        [SerializeField] private MeshRenderer _renderer;
+        [SerializeField] private MeshFilter _meshFilter;
         private Camera _camera;
         private CharacterStat _characterStat;
 
