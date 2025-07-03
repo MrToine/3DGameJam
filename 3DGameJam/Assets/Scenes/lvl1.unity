@@ -7375,7 +7375,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142858
   m_Depth: 0
@@ -7763,7 +7763,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -8835,7 +8835,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -9665,7 +9665,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -10004,7 +10004,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -10132,7 +10132,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -10260,7 +10260,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -11026,7 +11026,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -11240,7 +11240,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142858
   m_Depth: 0
