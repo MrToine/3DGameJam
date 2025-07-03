@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a4164930afb4d8fabe90a386b27238, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  m_damage: 200
+  m_damage: 100
   m_radius: 0
   m_magazine: 12
   m_shotGunFallOffDistance: 0
