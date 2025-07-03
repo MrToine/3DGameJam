@@ -52,12 +52,21 @@ namespace Core.Runtime
             Instance = this;
             DontDestroyOnLoad(gameObject);
             
-            Cursor.SetCursor(_cursorTexture, _hotspot, _cursorMode);
+            
             Cursor.visible = true;
         }
 
         private void Update()
         {
+            if (SceneManager.GetActiveScene().name == "Menu" || IsOnPause)
+            {
+                Cursor.SetCursor(_MenuCursorTexture, _hotspot, _cursorMode);
+            }
+            else
+            {
+                Cursor.SetCursor(_cursorTexture, _hotspot, _cursorMode);
+            }
+            
             if (isOnGameOver)
             {
                 IsGameOver();
@@ -108,6 +117,7 @@ namespace Core.Runtime
         #region Privates and Protected
         
         [Tooltip("Texture à utiliser comme curseur")]
+        [SerializeField] private Texture2D _MenuCursorTexture;
         [SerializeField] private Texture2D _cursorTexture;
         
         [Tooltip("Point de contact du curseur")]

@@ -590,7 +590,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 674076937}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 711322511}
+        m_TargetAssemblyTypeName: Core.Runtime.ChangingScene, Core.Runtime
+        m_MethodName: SetNextScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: lvl1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &674076937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,6 +641,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674076934}
   m_CullTransparentMesh: 1
+--- !u!1 &711322510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 711322512}
+  - component: {fileID: 711322511}
+  m_Layer: 0
+  m_Name: ChangingScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &711322511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711322510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e09cd686f594a538cd9631eabf1a317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: lvl1
+--- !u!4 &711322512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711322510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.166494, y: -49.11462, z: -69.30871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &857285363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,6 +1094,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2080099924451712948, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
       propertyPath: _cursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 2336e488702844abc815c5f1d7f7dfc4, type: 3}
+    - target: {fileID: 2080099924451712948, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
+      propertyPath: _MenuCursorTexture
       value: 
       objectReference: {fileID: 2800000, guid: dc70d177b4fdf9d41bfcb1aca6bc1759, type: 3}
     - target: {fileID: 2772257213010178099, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
@@ -1580,3 +1641,4 @@ SceneRoots:
   - {fileID: 1360453715}
   - {fileID: 467253107}
   - {fileID: 1352196001}
+  - {fileID: 711322512}
