@@ -58,7 +58,7 @@ namespace Core.Runtime
 
         private void Update()
         {
-            if (SceneManager.GetActiveScene().name == "Menu" || IsOnPause)
+            if (SceneManager.GetActiveScene().name == "Menu" || IsOnPause || isOnGameOver)
             {
                 Cursor.SetCursor(_MenuCursorTexture, _hotspot, _cursorMode);
             }

@@ -1,3 +1,4 @@
+using System;
 using Core.Runtime;
 using UnityEngine;
 
@@ -15,7 +16,15 @@ namespace MenuSystem.Runtime
 
         #region Unity API
 
-        //
+        void Update()
+        {
+            Info("Game over ?");
+            if (!GameManager.Instance.IsOnGameOver)
+            {
+                Info("Pas game over");
+                enabled = false;
+            }
+        }
 
         #endregion
 

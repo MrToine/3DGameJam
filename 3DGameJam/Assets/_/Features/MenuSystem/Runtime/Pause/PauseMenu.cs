@@ -3,6 +3,7 @@ using Core.Runtime;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace MenuSystem.Runtime
 {
@@ -56,7 +57,14 @@ namespace MenuSystem.Runtime
 
                 public void Restart()
                 {
+                        GameManager.Instance.IsOnGameOver = false;
                         GameManager.Instance.ReloadScene();
+                }
+                
+                public void MainMenu()
+                {
+                        GameManager.Instance.IsOnGameOver = false;
+                        SceneLoader.Instance.LoadScene("Menu");
                 }
                 
                 public void Quit()
@@ -87,7 +95,7 @@ namespace MenuSystem.Runtime
                 {
                         Info("On slide OUT");
                         //_panel.position = new Vector2(-200, _panel.position.y);
-                        _panel.transform.DOMove(new Vector3(-100, _panel.position.y, 0), 0.3f).SetEase(Ease.Linear);
+                        //_panel.transform.DOMove(new Vector3(-100, _panel.position.y, 0), 0.3f).SetEase(Ease.Linear);
                         //_inputActionAsset.actionMaps[0].Enable();
                         //_inputActionAsset.actionMaps[1].Disable();
                 }
