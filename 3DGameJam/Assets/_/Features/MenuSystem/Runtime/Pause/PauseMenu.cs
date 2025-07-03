@@ -86,18 +86,20 @@ namespace MenuSystem.Runtime
                 {
                         Info("On slide IN");
                         //_panel.position = new Vector2(200, _panel.position.y);
-                        _panel.transform.DOMove(new Vector3(780, -744, 0), 0.3f).SetEase(Ease.Linear).SetUpdate(true);
+                        //_panel.transform.DOMove(new Vector3(0, -944, 0), 0.3f).SetEase(Ease.Linear).SetUpdate(true);
                         //_inputActionAsset.actionMaps[0].Disable();
                         //_inputActionAsset.actionMaps[1].Enable();
+                        _panel.gameObject.SetActive(true);
                 }
                 
                 private void SlideOut()
                 {
                         Info("On slide OUT");
                         //_panel.position = new Vector2(-200, _panel.position.y);
-                        _panel.transform.DOMove(new Vector3(790, 744, 0), 0.3f).SetEase(Ease.Linear);
+                        //_panel.transform.DOMove(new Vector3(0,805,0), 0.3f).SetEase(Ease.Linear);
                         //_inputActionAsset.actionMaps[0].Enable();
                         //_inputActionAsset.actionMaps[1].Disable();
+                        _panel.gameObject.SetActive(false);
                 }
             
                 #endregion
