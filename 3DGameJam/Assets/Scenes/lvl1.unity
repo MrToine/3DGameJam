@@ -5462,6 +5462,10 @@ PrefabInstance:
       propertyPath: m_isVerbose
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2080099924451712948, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
+      propertyPath: _cursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 2336e488702844abc815c5f1d7f7dfc4, type: 3}
     - target: {fileID: 2772257213010178099, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 132.03769
@@ -7371,7 +7375,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142858
   m_Depth: 0
@@ -7759,7 +7763,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -8831,7 +8835,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -9661,7 +9665,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -10000,7 +10004,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -10128,7 +10132,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -10256,7 +10260,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -11022,7 +11026,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -11236,7 +11240,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455158
+  field of view: 19.455156
   orthographic: 0
   orthographic size: 0.17142858
   m_Depth: 0
