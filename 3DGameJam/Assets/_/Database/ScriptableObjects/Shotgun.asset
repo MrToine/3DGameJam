@@ -17,3 +17,5 @@ MonoBehaviour:
   m_magazine: 6
   m_shotGunFallOffDistance: 2
   m_reloadTime: 3
+  m_mesh: {fileID: -1380346717333350336, guid: 6ed13fac511a84a72b31cf3035350981, type: 3}
+  m_material: {fileID: -1063724183250243247, guid: 6ed13fac511a84a72b31cf3035350981, type: 3}

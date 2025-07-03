@@ -10,5 +10,9 @@ namespace Character.SO
         public int m_magazine;
         public float m_shotGunFallOffDistance;
         public float m_reloadTime;
+        
+        [Header("Mesh")]
+        public Mesh m_mesh;
+        public Material m_material;
     }
 }
