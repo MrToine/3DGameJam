@@ -127,7 +127,7 @@ namespace Character.Runtime.Player
 
             if (_shotCount <= 0)
             {
-                Debug.Log("You have to reload");
+                AudioManager.Instance.PlaySFXByName("empty_gun");
                 OnEmptyMagazieEvent?.Invoke();
                 return;
             }
