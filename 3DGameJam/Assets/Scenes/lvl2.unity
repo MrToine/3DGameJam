@@ -2530,11 +2530,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2080099924451712948, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
       propertyPath: _hotspot.x
-      value: 24
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 2080099924451712948, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
       propertyPath: _hotspot.y
-      value: 24
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 2080099924451712948, guid: 72b1cb2f7f87c4f0db97b507a825f0cb, type: 3}
       propertyPath: m_isVerbose
