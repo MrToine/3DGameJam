@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isVerbose: 1
-  _waitTimeToShoot: 2
+  _waitTimeToShoot: 3
 --- !u!114 &337738421436713910
 MonoBehaviour:
   m_ObjectHideFlags: 0
