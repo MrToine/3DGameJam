@@ -562,8 +562,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 787312930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &89113968 stripped
-Transform:
+--- !u!224 &89113968 stripped
+RectTransform:
   m_CorrespondingSourceObject: {fileID: 7465788147487072780, guid: 9df8c3f48c25340e3a1efa28debab6d8, type: 3}
   m_PrefabInstance: {fileID: 947080038}
   m_PrefabAsset: {fileID: 0}
@@ -7011,7 +7011,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4774397863178667155, guid: 9df8c3f48c25340e3a1efa28debab6d8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -400
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7465788147487072780, guid: 9df8c3f48c25340e3a1efa28debab6d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7079,7 +7079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9157272841014146056, guid: 9df8c3f48c25340e3a1efa28debab6d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10485,7 +10485,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142858
   m_Depth: 0
@@ -11071,7 +11071,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -12337,7 +12337,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -13419,7 +13419,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -13905,7 +13905,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -14095,7 +14095,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -14285,7 +14285,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -15404,7 +15404,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142856
   m_Depth: 0
@@ -15680,7 +15680,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 999.99994
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.17142858
   m_Depth: 0
