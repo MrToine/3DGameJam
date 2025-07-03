@@ -51,7 +51,7 @@ MonoBehaviour:
       m_Calls: []
   _MenuCursorTexture: {fileID: 2800000, guid: f27d46dd60a902c4aab95523188d1f37, type: 3}
   _cursorTexture: {fileID: 2800000, guid: 5ba8b57e66d10684fa9c55f085068f20, type: 3}
-  _hotspot: {x: 24, y: 24}
+  _hotspot: {x: 32, y: 32}
   _cursorMode: 0
 --- !u!114 &709140810391047456
 MonoBehaviour:
