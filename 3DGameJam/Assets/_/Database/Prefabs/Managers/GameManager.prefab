@@ -45,7 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb0991461b449b68f27a0aac981322a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isVerbose: 1
+  m_isVerbose: 0
+  OnBattleAreaEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  _MenuCursorTexture: {fileID: 0}
+  _cursorTexture: {fileID: 2800000, guid: 2336e488702844abc815c5f1d7f7dfc4, type: 3}
+  _hotspot: {x: 0, y: 0}
+  _cursorMode: 0
 --- !u!114 &709140810391047456
 MonoBehaviour:
   m_ObjectHideFlags: 0
