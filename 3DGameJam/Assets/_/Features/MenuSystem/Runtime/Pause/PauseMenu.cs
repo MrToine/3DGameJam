@@ -86,7 +86,7 @@ namespace MenuSystem.Runtime
                 {
                         Info("On slide IN");
                         //_panel.position = new Vector2(200, _panel.position.y);
-                        _panel.transform.DOMove(new Vector3(99, _panel.position.y, 0), 0.3f).SetEase(Ease.Linear).SetUpdate(true);
+                        _panel.transform.DOMove(new Vector3(780, -744, 0), 0.3f).SetEase(Ease.Linear).SetUpdate(true);
                         //_inputActionAsset.actionMaps[0].Disable();
                         //_inputActionAsset.actionMaps[1].Enable();
                 }
@@ -95,7 +95,7 @@ namespace MenuSystem.Runtime
                 {
                         Info("On slide OUT");
                         //_panel.position = new Vector2(-200, _panel.position.y);
-                        //_panel.transform.DOMove(new Vector3(-100, _panel.position.y, 0), 0.3f).SetEase(Ease.Linear);
+                        _panel.transform.DOMove(new Vector3(790, 744, 0), 0.3f).SetEase(Ease.Linear);
                         //_inputActionAsset.actionMaps[0].Enable();
                         //_inputActionAsset.actionMaps[1].Disable();
                 }
