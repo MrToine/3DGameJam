@@ -51,6 +51,9 @@ namespace Core.Runtime
             // Sinon, cette instance devient l’instance unique
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
+            Cursor.SetCursor(_cursorTexture, _hotspot, _cursorMode);
+            Cursor.visible = true;
         }
 
         private void Update()
@@ -103,6 +106,15 @@ namespace Core.Runtime
 
 
         #region Privates and Protected
+        
+        [Tooltip("Texture à utiliser comme curseur")]
+        [SerializeField] private Texture2D _cursorTexture;
+        
+        [Tooltip("Point de contact du curseur")]
+        [SerializeField] private Vector2 _hotspot;
+        
+        [Tooltip("Mode du curseur")]
+        [SerializeField] private CursorMode _cursorMode;
 
         private bool isOnPause = false;
         private bool isOnGameOver = false;

@@ -13,6 +13,7 @@ namespace Core.Runtime
 
         public static event Action<Scene> OnSceneLoaded;
         public static string CurrentSceneName => SceneManager.GetActiveScene().name;
+        public static SceneLoader Instance { get; private set; }
 
         #endregion
 
@@ -21,17 +22,20 @@ namespace Core.Runtime
 
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            
             SceneManager.sceneLoaded += HandleSceneLoaded;
         }
 
         void OnDestroy()
         {
             SceneManager.sceneLoaded -= HandleSceneLoaded;
-        }
-
-        void OnCollisionEnter(Collision other)
-        {
-            FakeLoading(_nextScene);
         }
 
         #endregion
@@ -50,6 +54,7 @@ namespace Core.Runtime
             if (SceneExists("Loading"))
             {
                 LoadScene("Loading");
+                Info($"level suivant {nextSceneName}");
                 StartCoroutine(WaitingLoading(nextSceneName));
             }
         }
@@ -62,6 +67,7 @@ namespace Core.Runtime
         private IEnumerator WaitingLoading(string nextSceneName)
         {
             int time = Random.Range(3, 6);
+            Info($"On attend {time} secondes et on charge la scene {nextSceneName}");
             yield return new WaitForSeconds(time);
             LoadScene(nextSceneName);
         }
@@ -88,7 +94,7 @@ namespace Core.Runtime
 
         #region Privates and Protected
 
-        [SerializeField] private string _nextScene;
+        //
 
         #endregion
     }

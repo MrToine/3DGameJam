@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/_/Levels/DEV_ANTHONY.unity
-    guid: 611da9d6413974ef584ad130af05ea54
-  - enabled: 1
-    path: Assets/_/Levels/Loading.unity
+    path: Assets/Scenes/Loading.unity
     guid: c67ca55a9f10f4ef885928c848f42de8
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 590f3644e46249644a7c6796703ba730
+  - enabled: 1
+    path: Assets/Scenes/lvl1.unity
+    guid: d24243cce9512483588e1ab1fe2eaa5c
+  - enabled: 1
+    path: Assets/Scenes/lvl2.unity
+    guid: ea5b935d5d21ee944b73e0757e0d1227
+  - enabled: 1
+    path: Assets/Scenes/lvl3.unity
+    guid: 29754c41e3337bb4b89aeae2c30238c9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
