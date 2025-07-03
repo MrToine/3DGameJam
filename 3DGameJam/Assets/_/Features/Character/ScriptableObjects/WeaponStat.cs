@@ -9,5 +9,6 @@ namespace Character.SO
         public float m_radius;
         public int m_magazine;
         public float m_shotGunFallOffDistance;
+        public float m_reloadTime;
     }
 }
