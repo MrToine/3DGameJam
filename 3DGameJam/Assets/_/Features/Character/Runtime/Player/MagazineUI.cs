@@ -12,7 +12,6 @@ namespace Character.Runtime.Player
         private void Awake()
         {
             _magazineText = GetComponentInChildren<TMP_Text>();
-            _clickShooter = GetComponentInParent<ClickShooter>();
             _clickShooter.OnShotEvent.AddListener(UpdateMagazine);
             _clickShooter.OnEmptyMagazieEvent.AddListener(() => StartBlinking(_reloadMagazineText, _reloadFlashColor));
             _clickShooter.OnReloadingEvent.AddListener(() => StartBlinking(_reloadingMagazineText, _reloadingFlashColor));
@@ -81,9 +80,11 @@ namespace Character.Runtime.Player
         #region Privates
 
         private TMP_Text _magazineText;
-        private ClickShooter _clickShooter;
         private Coroutine _blinkRoutine;
 
+        [Header( "Reference Player")]
+        [SerializeField] private ClickShooter _clickShooter;
+        [Header( "Color & text")]
         [SerializeField] private string _reloadMagazineText;
         [SerializeField] private string _reloadingMagazineText;
         [SerializeField] private Color _reloadFlashColor = Color.red;
